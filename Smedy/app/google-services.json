@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "974304437979",
+    "project_id": "smedy-enhance",
+    "storage_bucket": "smedy-enhance.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974304437979:android:df69b7a43eea97e5d38efe",
+        "android_client_info": {
+          "package_name": "com.example.smedy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "974304437979-j7cpvcufphs2alk5bqodp0dcb1s0fqnl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAx82JrRUxLeyuDQDMgGoluTiqqtGTFeY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "974304437979-j7cpvcufphs2alk5bqodp0dcb1s0fqnl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
