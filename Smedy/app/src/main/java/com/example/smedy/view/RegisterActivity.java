@@ -77,7 +77,6 @@ public class RegisterActivity extends AppCompatActivity {
         regTextInputEmail.animate().translationX(0).alpha(1).setDuration(1200).setStartDelay(700).start();
         regTextInputPassword.animate().translationX(0).alpha(1).setDuration(1200).setStartDelay(900).start();
         regButtonRegister.animate().translationX(0).alpha(1).setDuration(1200).setStartDelay(1100).start();
-
     }
 
     private void setListener() {
@@ -186,7 +185,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 });
                             } else {
                                 Toast.makeText(RegisterActivity.this, "Failed to Create Account!", Toast.LENGTH_SHORT).show();
-                                Log.e("error", "error firebase" ,task.getException());
+                                Log.e("error", "error firebase", task.getException());
                             }
 
                         }
