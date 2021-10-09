@@ -35,6 +35,7 @@ public class FiretestActivity extends AppCompatActivity {
 
     FirebaseAuth mAuth;
     FirebaseUser user;
+    GoogleSignInAccount signInAccount;
     FirebaseFirestore fStore;
     String userID;
 
@@ -47,17 +48,12 @@ public class FiretestActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
-        user = mAuth.getCurrentUser();
-        userID = user.getUid();
 
-        //nanti harus dipindah di beda file klo ngga error!!
-        GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
-        if(signInAccount != null){
-            DocumentReference userReference = fStore.collection("user_collection").document(userID);
-            Map<String, Object> user_info = new HashMap<>();
-            user_info.put("username", signInAccount.getDisplayName());
-            user_info.put("email", signInAccount.getEmail());
-        }
+        //gimana cara beda in login pakai email biasa sama google?
+        user = mAuth.getCurrentUser(); //email biasa
+        signInAccount = GoogleSignIn.getLastSignedInAccount(this); //google
+
+        userID = user.getUid();
 
         DocumentReference userReference = fStore.collection("user_collection").document(userID);
         userReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {

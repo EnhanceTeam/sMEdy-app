@@ -31,10 +31,17 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
     FirebaseAuth mAuth;
+    FirebaseFirestore fStore;
+    String userID;
     GoogleSignInClient googleSignInClient;
     private static final int RC_SIGN_IN = 444;
 
@@ -49,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
 
         FirebaseUser user = mAuth.getCurrentUser();
-        if(user !=null){
+        if(user != null){
             intent = new Intent(getBaseContext(),FiretestActivity.class);
             startActivity(intent);
         }
@@ -66,11 +73,25 @@ public class LoginActivity extends AppCompatActivity {
         setAnimation();
 
         mAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
 
         setTextWatcher();
         setGoogleRequest();
         setListener();
 
+        //ERROR: data gmail belum masuk
+        setGoogleData();
+    }
+
+    private void setGoogleData() {
+        GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
+        userID = signInAccount.getId();
+        if(signInAccount != null){
+            DocumentReference userReference = fStore.collection("user_collection").document(userID);
+            Map<String, Object> user_info = new HashMap<>();
+            user_info.put("username", signInAccount.getDisplayName());
+            user_info.put("email", signInAccount.getEmail());
+        }
     }
 
     private void setGoogleRequest() {
