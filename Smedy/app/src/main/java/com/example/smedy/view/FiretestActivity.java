@@ -13,6 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.smedy.R;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.SignInAccount;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -20,6 +23,9 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class FiretestActivity extends AppCompatActivity {
 
@@ -43,6 +49,15 @@ public class FiretestActivity extends AppCompatActivity {
         fStore = FirebaseFirestore.getInstance();
         user = mAuth.getCurrentUser();
         userID = user.getUid();
+
+        //nanti harus dipindah di beda file klo ngga error!!
+        GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
+        if(signInAccount != null){
+            DocumentReference userReference = fStore.collection("user_collection").document(userID);
+            Map<String, Object> user_info = new HashMap<>();
+            user_info.put("username", signInAccount.getDisplayName());
+            user_info.put("email", signInAccount.getEmail());
+        }
 
         DocumentReference userReference = fStore.collection("user_collection").document(userID);
         userReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
