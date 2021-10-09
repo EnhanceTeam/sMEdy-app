@@ -161,7 +161,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 Map<String, Object> user_info = new HashMap<>();
                                 user_info.put("username", username);
                                 user_info.put("email", email);
-                                user_info.put("password", password); //buat percobaan, nanti dihapus aja
+//                                user_info.put("password", password);
 
                                 userReference.set(user_info).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
@@ -186,6 +186,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 });
                             } else {
                                 Toast.makeText(RegisterActivity.this, "Failed to Create Account!", Toast.LENGTH_SHORT).show();
+                                Log.e("error", "error firebase" ,task.getException());
                             }
 
                         }
