@@ -3,4 +3,5 @@
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet.</string>
     <string name="register_btn">register</string>
     <string name="login_btn">login</string>
+    <string name="signout_btn">sign out</string>
 </resources>
