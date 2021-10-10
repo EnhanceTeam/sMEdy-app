@@ -3,6 +3,7 @@ package com.example.smedy.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -64,9 +65,6 @@ public class LoginActivity extends AppCompatActivity {
         initialize();
         clearError();
         setAnimation();
-
-        mAuth = FirebaseAuth.getInstance();
-
         setTextWatcher();
         setGoogleRequest();
         setListener();
@@ -99,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                 String email = logTextInputEmail.getEditText().getText().toString().trim();
                 String password = logTextInputPassword.getEditText().getText().toString().trim();
 
-                if (!email.isEmpty() && !password.isEmpty()) {
+                if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
                     mAuth.signInWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
@@ -236,6 +234,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initialize() {
+        mAuth = FirebaseAuth.getInstance();
         logTextViewTitle = findViewById(R.id.logTextViewTitle);
         logTextViewDesc = findViewById(R.id.logTextViewDesc);
         logTextInputEmail = findViewById(R.id.logTextInputEmail);
