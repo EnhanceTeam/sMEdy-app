@@ -67,12 +67,12 @@ public class RegisterActivity extends AppCompatActivity {
         regTextInputPassword.setAlpha(0);
         regButtonRegister.setAlpha(0);
 
-        regTextViewTitle.animate().translationX(0).alpha(1).setDuration(1200).setStartDelay(200).start();
-        regTextViewDesc.animate().translationX(0).alpha(1).setDuration(1200).setStartDelay(250).start();
-        regTextInputUsername.animate().translationX(0).alpha(1).setDuration(1200).setStartDelay(500).start();
-        regTextInputEmail.animate().translationX(0).alpha(1).setDuration(1200).setStartDelay(700).start();
-        regTextInputPassword.animate().translationX(0).alpha(1).setDuration(1200).setStartDelay(900).start();
-        regButtonRegister.animate().translationX(0).alpha(1).setDuration(1200).setStartDelay(1100).start();
+        regTextViewTitle.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(200).start();
+        regTextViewDesc.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(250).start();
+        regTextInputUsername.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(400).start();
+        regTextInputEmail.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(500).start();
+        regTextInputPassword.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(600).start();
+        regButtonRegister.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(900).start();
     }
 
     private void setListener() {
@@ -119,7 +119,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
                 Pattern PASSWORD_PATTERN = Pattern.compile("^"
-//                        + "(?=.*[0-9])"       //a digit must occur at least once
+                        + "(?=.*[0-9])"       //a digit must occur at least once
                         + "(?=.*[a-z])"       //a lower case letter must occur at least once
 //                        + "(?=.*[A-Z])"       //an upper case letter must occur at least once
 //                        + "(?=.*[@#$%^&+=])"  //a special character must occur at least once you can replace with your special characters
@@ -135,7 +135,7 @@ public class RegisterActivity extends AppCompatActivity {
                         regTextInputPassword.setError("Must contains 8-20 Characters");
                         validatePassword = false;
                     } else if (!PASSWORD_PATTERN.matcher(password).matches()) {
-                        regTextInputPassword.setError("Must contains at least lowercase with no whitespace");
+                        regTextInputPassword.setError("Must contains lowercase and number with no whitespace");
                         validatePassword = false;
                     } else {
                         regTextInputPassword.setError("");

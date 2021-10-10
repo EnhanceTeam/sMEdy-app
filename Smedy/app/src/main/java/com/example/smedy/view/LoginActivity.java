@@ -249,12 +249,12 @@ public class LoginActivity extends AppCompatActivity {
         logButtonLogin.setAlpha(0);
         logCardViewGoogle.setAlpha(0);
 
-        logTextViewTitle.animate().translationX(0).alpha(1).setDuration(1200).setStartDelay(200).start();
-        logTextViewDesc.animate().translationX(0).alpha(1).setDuration(1200).setStartDelay(250).start();
-        logTextInputEmail.animate().translationX(0).alpha(1).setDuration(1200).setStartDelay(500).start();
-        logTextInputPassword.animate().translationX(0).alpha(1).setDuration(1200).setStartDelay(700).start();
-        logButtonLogin.animate().translationX(0).alpha(1).setDuration(1200).setStartDelay(900).start();
-        logCardViewGoogle.animate().translationX(0).alpha(1).setDuration(1200).setStartDelay(1100).start();
+        logTextViewTitle.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(200).start();
+        logTextViewDesc.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(250).start();
+        logTextInputEmail.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+        logTextInputPassword.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(400).start();
+        logButtonLogin.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(600).start();
+        logCardViewGoogle.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(800).start();
     }
 
     private void initialize() {
