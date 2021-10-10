@@ -17,11 +17,14 @@ import androidx.cardview.widget.CardView;
 
 import com.example.smedy.R;
 import com.example.smedy.helper.Const;
+import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -38,14 +41,16 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
+    private static final int RC_SIGN_IN = 444;
+    private static final String TAG = "GoogleSignInActivity";
     FirebaseAuth mAuth;
     FirebaseFirestore fStore;
     String userID;
     GoogleSignInClient googleSignInClient;
-    private static final int RC_SIGN_IN = 444;
-
+    GoogleApiClient mGoogleApiClient;
+    FirebaseAuth.AuthStateListener mAuthListener;
     private TextView logTextViewTitle, logTextViewDesc, logTextViewRegister;
     private TextInputLayout logTextInputEmail, logTextInputPassword;
     private Button logButtonLogin;
@@ -56,12 +61,22 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        mAuth.addAuthStateListener(mAuthListener);
+
         FirebaseUser user = mAuth.getCurrentUser();
-        if(user != null){
-            intent = new Intent(getBaseContext(),FiretestActivity.class);
+        if (user != null) {
+            intent = new Intent(getBaseContext(), FiretestActivity.class);
             startActivity(intent);
         }
 
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
     }
 
     @Override
@@ -87,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
     private void setGoogleData() {
         GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
         userID = signInAccount.getId();
-        if(signInAccount != null){
+        if (signInAccount != null) {
             DocumentReference userReference = fStore.collection("user_collection").document(userID);
             Map<String, Object> user_info = new HashMap<>();
             user_info.put("username", signInAccount.getDisplayName());
@@ -100,8 +115,27 @@ public class LoginActivity extends AppCompatActivity {
                 .requestIdToken(Const.CLIENT_ID)
                 .requestEmail()
                 .build();
-
         googleSignInClient = GoogleSignIn.getClient(LoginActivity.this, gso);
+
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this, this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                } else {
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                }
+                setGoogleData();
+            }
+        };
+
     }
 
     private void setListener() {
@@ -146,9 +180,7 @@ public class LoginActivity extends AppCompatActivity {
         logCardViewGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 signIn();
-
             }
         });
 
@@ -169,11 +201,11 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
-                Log.d("SignInSuccess", "firebaseAuthWithGoogle:" + account.getId());
+                Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
                 firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
-                Log.w("SignInFailed", "Google sign in failed", e);
+                Log.w(TAG, "Google sign in failed", e);
             }
         }
     }
@@ -186,11 +218,11 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d("SignInSuccess", "signInWithCredential:success");
+                            Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w("SignInFailed", "signInWithCredential:failure", task.getException());
+                            Log.w(TAG, "signInWithCredential:failure", task.getException());
                         }
                     }
                 });
@@ -266,5 +298,11 @@ public class LoginActivity extends AppCompatActivity {
         logButtonLogin = findViewById(R.id.logButtonLogin);
         logCardViewGoogle = findViewById(R.id.logCardViewGoogle);
         logTextViewRegister = findViewById(R.id.logTextViewRegister);
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        Log.d(TAG, "onConnectionFailed:" + connectionResult);
+        Toast.makeText(this, "Google Play Services error.", Toast.LENGTH_SHORT).show();
     }
 }
