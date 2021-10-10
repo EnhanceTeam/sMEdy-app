@@ -47,10 +47,6 @@ public class RegisterActivity extends AppCompatActivity {
         initialize();
         clearError();
         setAnimation();
-
-        mAuth = FirebaseAuth.getInstance();
-        fStore = FirebaseFirestore.getInstance();
-
         setTextWatcher();
         setListener();
 
@@ -248,6 +244,7 @@ public class RegisterActivity extends AppCompatActivity {
         regTextInputPassword = findViewById(R.id.regTextInputPassword);
         regButtonRegister = findViewById(R.id.regButtonRegister);
         regTextViewLogin = findViewById(R.id.regTextViewLogin);
-
+        mAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
     }
 }
