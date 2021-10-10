@@ -1,8 +1,10 @@
-package com.example.smedy;
+package com.example.smedy.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.smedy.R;
 
 public class SplashActivity extends AppCompatActivity {
 
