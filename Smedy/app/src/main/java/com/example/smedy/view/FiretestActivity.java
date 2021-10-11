@@ -48,13 +48,13 @@ public class FiretestActivity extends AppCompatActivity {
 
         //nanti harus dipindah di beda file klo ngga error!!
         // ini juga harus e di repository
-        GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
-        if(signInAccount != null){
-            DocumentReference userReference = fStore.collection("user_collection").document(userID);
-            Map<String, Object> user_info = new HashMap<>();
-            user_info.put("username", signInAccount.getDisplayName());
-            user_info.put("email", signInAccount.getEmail());
-        }
+//        GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
+//        if(signInAccount != null){
+//            DocumentReference userReference = fStore.collection("user_collection").document(userID);
+//            Map<String, Object> user_info = new HashMap<>();
+//            user_info.put("username", signInAccount.getDisplayName());
+//            user_info.put("email", signInAccount.getEmail());
+//        }
 
         // ini harus e di repository
         DocumentReference userReference = fStore.collection("user_collection").document(userID);
