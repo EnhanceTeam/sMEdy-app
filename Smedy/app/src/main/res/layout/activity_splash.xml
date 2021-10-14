@@ -4,30 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3B9DFF"
+    android:background="#003f5a"
     tools:context=".view.SplashActivity">
 
     <ImageView
-        android:id="@+id/splashImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:id="@+id/splashImageUtara"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo_part_utara"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/splashTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/app_name"
-        android:textColor="#FFFFFF"
-        android:textSize="34sp"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="@+id/splashImageView"
-        app:layout_constraintStart_toStartOf="@+id/splashImageView"
-        app:layout_constraintTop_toBottomOf="@+id/splashImageView" />
+    <ImageView
+        android:id="@+id/splashImageNama"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="72dp"
+        android:src="@drawable/logo_part_nama"
+        app:layout_constraintEnd_toEndOf="@+id/splashImageUtara"
+        app:layout_constraintStart_toStartOf="@+id/splashImageUtara"
+        app:layout_constraintTop_toTopOf="@+id/splashImageUtara" />
+
+    <ImageView
+        android:id="@+id/splashImageTimurLaut"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="322dp"
+        android:layout_marginEnd="131dp"
+        android:src="@drawable/logo_part_timurlaut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/splashImageBaratLaut"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="322dp"
+        android:src="@drawable/logo_part_baratlaut"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/splashImageBarat"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="340dp"
+        android:src="@drawable/logo_part_barat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/splashImageTimur"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="340dp"
+        android:layout_marginEnd="114dp"
+        android:src="@drawable/logo_part_timur"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/splashImageBunder"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="72dp"
+        app:layout_constraintBottom_toBottomOf="@+id/splashImageUtara"
+        app:layout_constraintEnd_toEndOf="@+id/splashImageUtara"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/splashImageUtara"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/logo_part_bunder" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
