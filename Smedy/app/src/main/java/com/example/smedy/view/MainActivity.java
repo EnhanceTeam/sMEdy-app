@@ -58,6 +58,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        bottomNavbarMain.setOnReselectListener(new MeowBottomNavigation.ReselectListener() {
+            @Override
+            public void onReselectItem(MeowBottomNavigation.Model item) {
+
+            }
+        });
     }
 
     private void loadFragment(Fragment fragment) {

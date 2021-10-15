@@ -8,12 +8,14 @@ import android.os.Handler;
 import android.widget.ImageView;
 
 import com.example.smedy.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class SplashActivity extends AppCompatActivity {
 
     private ImageView splashImageUtara, splashImageBarat, splashImageTimur,
             splashImageTimurLaut, splashImageBaratLaut,
             splashImageBunder, splashImageNama;
+    private FirebaseAuth auth;
 
 
     @Override
@@ -28,8 +30,14 @@ public class SplashActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                finish();
+                if(auth.getCurrentUser() != null){
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    finish();
+                }else{
+                    startActivity(new Intent(getApplicationContext(), OnBoardingActivity.class));
+                    finish();
+                }
+
             }
         }, 3000);
         initView();
@@ -38,6 +46,8 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        auth = FirebaseAuth.getInstance();
+
         splashImageBunder = findViewById(R.id.splashImageBunder);
         splashImageUtara = findViewById(R.id.splashImageUtara);
         splashImageBarat = findViewById(R.id.splashImageBarat);
