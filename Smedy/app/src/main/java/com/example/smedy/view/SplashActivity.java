@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Window;
 import android.widget.ImageView;
 
 import com.example.smedy.R;
@@ -80,6 +81,8 @@ public class SplashActivity extends AppCompatActivity {
         splashImageTimurLaut.setAlpha(0.1F);
         splashImageNama.setAlpha(0.1F);
 
+        // Set Android Status Bar Color
+        getWindow().setStatusBarColor(getColor(R.color.blue_800));
     }
 
     private void setAnimation() {

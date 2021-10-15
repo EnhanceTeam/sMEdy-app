@@ -56,16 +56,16 @@ public class OnBoardingActivity extends AppCompatActivity {
         for (int i = 0; i <mdots.length; i++){
 
             mdots[i] = new TextView(this);
-            mdots[i].setText(Html.fromHtml("&#8226;"));
+            mdots[i].setText("\u2022");
             mdots[i].setTextSize(35);
-            mdots[i].setTextColor(getResources().getColor(R.color.blue_500));
+            mdots[i].setTextColor(getColor(R.color.state_disabled));
 
             onboardingLinearLayout.addView(mdots[i]);
 
         }
 
         if(mdots.length > 0 ){
-            mdots[position].setTextColor(getResources().getColor(R.color.blue_500));
+            mdots[position].setTextColor(getColor(R.color.primary_500));
         }
     }
 
