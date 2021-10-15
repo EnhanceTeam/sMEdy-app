@@ -21,9 +21,9 @@ public class OnBoardingAdapter extends PagerAdapter {
     }
 
     public int[] slide_images = {
-            R.drawable.common_full_open_on_phone,
-            R.drawable.common_google_signin_btn_icon_dark,
-            R.drawable.common_google_signin_btn_icon_dark_normal
+            R.drawable.onboarding_1_meditation,
+            R.drawable.onboarding_2_audio_player,
+            R.drawable.onboarding_3_social_serenity
     };
 
     public String [] slide_headings = {
