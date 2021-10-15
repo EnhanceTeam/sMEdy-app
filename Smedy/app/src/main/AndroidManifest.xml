@@ -24,10 +24,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.FiretestActivity"
-            android:exported="true" >
-        </activity>
-        <activity
             android:name=".view.RegisterActivity"
             android:exported="true">
         </activity>
