@@ -155,7 +155,7 @@ public class LoginActivity extends AppCompatActivity {
                     mAuth.signInWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
-                            intent = new Intent(getBaseContext(), FiretestActivity.class);
+                            intent = new Intent(getBaseContext(), MainActivity.class);
                             Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                             startActivity(intent);
                             finish();

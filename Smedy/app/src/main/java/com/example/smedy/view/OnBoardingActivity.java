@@ -124,7 +124,7 @@ public class OnBoardingActivity extends AppCompatActivity {
                 if(currentPage!=mdots.length - 1){
                     onboardingViewPager.setCurrentItem(currentPage + 1);
                 }else{
-                    Intent intent = new Intent(OnBoardingActivity.this, LoginActivity.class);
+                    Intent intent = new Intent(OnBoardingActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 }
