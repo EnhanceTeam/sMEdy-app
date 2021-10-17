@@ -12,14 +12,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 
 import com.example.smedy.R;
+import com.example.smedy.helper.Const;
+import com.example.smedy.model.Music;
+import com.example.smedy.viewModel.MusicViewModel;
+
+import java.util.ArrayList;
 
 public class MusicPlayerActivity extends AppCompatActivity {
     private ImageView musicPlayerImageView, musicPlayerPlayPauseImageView;
     private SeekBar musicPlayerSeekBar;
-    private TextView musicPlayerCurrentTimeTextView, musicPlayerTotalTimeTextView, musicPlayerTitleTextView, musicPlayerArtistTextView;
+    private TextView musicPlayerCurrentTimeTextView, musicPlayerTotalTimeTextView, musicPlayerTitleTextView;
     private MediaPlayer mediaPlayer;
+    private MusicViewModel viewModel;
+    private String titleFormat, musicFormat, tokenFormat, musicUrl;
     private Intent intent;
     private Handler handler = new Handler();
     private Runnable updater = new Runnable() {
@@ -30,6 +38,21 @@ public class MusicPlayerActivity extends AppCompatActivity {
             musicPlayerCurrentTimeTextView.setText(millisecondsToTimer(currentTime));
         }
     };
+    private Observer<ArrayList<Music>> showMusic = new Observer<ArrayList<Music>>() {
+        @Override
+        public void onChanged(ArrayList<Music> music) {
+            musicPlayerTitleTextView.setText(titleFormat);
+        }
+    };
+
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        prepareMediaPlayer();
+//        mediaPlayer.start();
+//        musicPlayerPlayPauseImageView.setImageResource(R.drawable.ic_baseline_pause_24);
+//        updateSeekBar();
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,15 +65,6 @@ public class MusicPlayerActivity extends AppCompatActivity {
         setBuffering();
 
     }
-
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        prepareMediaPlayer();
-//        mediaPlayer.start();
-//        musicPlayerPlayPauseImageView.setImageResource(R.drawable.ic_baseline_pause_24);
-//        updateSeekBar();
-//    }
 
     private void setBuffering() {
         mediaPlayer.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
@@ -81,7 +95,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 SeekBar tmpSeekBar = (SeekBar) view;
-                int playPosition = (mediaPlayer.getDuration()/100)*tmpSeekBar.getProgress();
+                int playPosition = (mediaPlayer.getDuration() / 100) * tmpSeekBar.getProgress();
                 mediaPlayer.seekTo(playPosition);
                 musicPlayerCurrentTimeTextView.setText(millisecondsToTimer(mediaPlayer.getCurrentPosition()));
 
@@ -105,7 +119,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
     private void prepareMediaPlayer() {
         try {
-            mediaPlayer.setDataSource("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
+            mediaPlayer.setDataSource(musicUrl);
             mediaPlayer.prepare();
             musicPlayerTotalTimeTextView.setText(millisecondsToTimer(mediaPlayer.getDuration()));
         } catch (Exception e) {
@@ -122,16 +136,25 @@ public class MusicPlayerActivity extends AppCompatActivity {
     }
 
     private void initialize() {
+        intent = getIntent();
+        titleFormat = intent.getStringExtra("title");
+        musicFormat = intent.getStringExtra("music");
+        tokenFormat = intent.getStringExtra("token");
+
         musicPlayerImageView = findViewById(R.id.musicPlayerImageView);
         musicPlayerPlayPauseImageView = findViewById(R.id.musicPlayerPlayPauseImageView);
         musicPlayerSeekBar = findViewById(R.id.musicPlayerSeekBar);
         musicPlayerCurrentTimeTextView = findViewById(R.id.musicPlayerCurrentTimeTextView);
         musicPlayerTotalTimeTextView = findViewById(R.id.musicPlayerTotalTimeTextView);
         musicPlayerTitleTextView = findViewById(R.id.musicPlayerTitleTextView);
-        musicPlayerArtistTextView = findViewById(R.id.musicPlayerArtistTextView);
+
+        viewModel.setResultGetMusic();
+        viewModel.getResultGetMusic().observe(MusicPlayerActivity.this, showMusic);
 
         mediaPlayer = new MediaPlayer();
         musicPlayerSeekBar.setMax(100);
+
+        musicUrl = Const.MUSIC_LINK + musicFormat + Const.MUSIC_TOKEN + tokenFormat;
     }
 
     private String millisecondsToTimer(long milliSeconds) {
@@ -156,6 +179,11 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
         return time;
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 
 }
