@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        bottomNavbarMain.show(2, true);
+        bottomNavbarMain.show(3, true);
 
         bottomNavbarMain.setOnClickMenuListener(new MeowBottomNavigation.ClickListener() {
             @Override
