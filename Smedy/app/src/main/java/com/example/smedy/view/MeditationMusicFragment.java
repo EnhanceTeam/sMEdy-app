@@ -35,7 +35,7 @@ public class MeditationMusicFragment extends Fragment {
         meditationMusicCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(getActivity(),MusicActivity.class);
+                intent = new Intent(getActivity(),MusicPlayerActivity.class);
                 startActivity(intent);
             }
         });

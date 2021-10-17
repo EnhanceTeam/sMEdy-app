@@ -16,17 +16,20 @@
         android:theme="@style/Theme.Smedy"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".view.MusicPlayerActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.MusicActivity"
             android:exported="false" />
         <activity
             android:name=".view.OnBoardingActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".view.RegisterActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".view.LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".view.SplashActivity"
             android:exported="true">
@@ -38,7 +41,7 @@
         </activity>
         <activity
             android:name=".view.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"
