@@ -26,10 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void initNavbar(){
         bottomNavbarMain.add(new MeowBottomNavigation.Model(1, R.drawable.ic_baseline_home_24));
-        bottomNavbarMain.add(new MeowBottomNavigation.Model(2, R.drawable.ic_baseline_appointment_24));
-        bottomNavbarMain.add(new MeowBottomNavigation.Model(3, R.drawable.ic_baseline_meditation_24));
-        bottomNavbarMain.add(new MeowBottomNavigation.Model(4, R.drawable.ic_baseline_history_24));
-        bottomNavbarMain.add(new MeowBottomNavigation.Model(5, R.drawable.ic_baseline_profile_24));
+        bottomNavbarMain.add(new MeowBottomNavigation.Model(2, R.drawable.ic_baseline_meditation_24));
+        bottomNavbarMain.add(new MeowBottomNavigation.Model(3, R.drawable.ic_baseline_appointment_24));
 
         bottomNavbarMain.setOnShowListener(new MeowBottomNavigation.ShowListener() {
             @Override
@@ -41,17 +39,12 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new HomeFragment();
                         break;
                     case 2:
-                        fragment = new MakeAppointmentFragment();
-                        break;
-                    case 3:
                         fragment = new MeditationMusicFragment();
                         break;
-                    case 4:
-                        fragment = new HistoryFragment();
+                    case 3:
+                        fragment = new MakeAppointmentFragment();
                         break;
-                    case 5:
-                        fragment = new ProfileFragment();
-                        break;
+
                 }
 
                 loadFragment(fragment);
