@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.smedy.R;
 import com.example.smedy.helper.Const;
@@ -148,6 +149,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
         musicPlayerTotalTimeTextView = findViewById(R.id.musicPlayerTotalTimeTextView);
         musicPlayerTitleTextView = findViewById(R.id.musicPlayerTitleTextView);
 
+        viewModel = new ViewModelProvider(MusicPlayerActivity.this).get(MusicViewModel.class);
         viewModel.setResultGetMusic();
         viewModel.getResultGetMusic().observe(MusicPlayerActivity.this, showMusic);
 

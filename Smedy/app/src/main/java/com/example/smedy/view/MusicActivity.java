@@ -43,7 +43,7 @@ public class MusicActivity extends AppCompatActivity {
         public void onChanged(ArrayList<Music> music) {
             musicRV.setLayoutManager(new LinearLayoutManager(MusicActivity.this));
             MusicAdapter adapter = new MusicAdapter(MusicActivity.this);
-//            adapter.setMusicList(music.get(position));
+            adapter.setMusicList(music);
             musicRV.setAdapter(adapter);
         }
     };
