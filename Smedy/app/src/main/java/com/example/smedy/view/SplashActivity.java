@@ -58,19 +58,19 @@ public class SplashActivity extends AppCompatActivity {
         splashImageNama = findViewById(R.id.splashImageNama);
 
         //Y Translation
-        splashImageBunder.setTranslationY(-50);
-        splashImageUtara.setTranslationY(-50);
-        splashImageBarat.setTranslationY(-50);
-        splashImageTimur.setTranslationY(-50);
-        splashImageBaratLaut.setTranslationY(-30);
-        splashImageTimurLaut.setTranslationY(-30);
-        splashImageNama.setTranslationY(40);
+        splashImageBunder.setTranslationY(-100);
+        splashImageUtara.setTranslationY(-100);
+        splashImageBarat.setTranslationY(-100);
+        splashImageTimur.setTranslationY(-100);
+        splashImageBaratLaut.setTranslationY(-60);
+        splashImageTimurLaut.setTranslationY(-60);
+        splashImageNama.setTranslationY(80);
 
         //X Translation
-        splashImageBarat.setTranslationX(-60);
-        splashImageTimur.setTranslationX(60);
-        splashImageBaratLaut.setTranslationX(-40);
-        splashImageTimurLaut.setTranslationX(40);
+        splashImageBarat.setTranslationX(-120);
+        splashImageTimur.setTranslationX(120);
+        splashImageBaratLaut.setTranslationX(-80);
+        splashImageTimurLaut.setTranslationX(80);
 
 //        //Alpha
         splashImageBunder.setAlpha(0.1F);
@@ -87,12 +87,12 @@ public class SplashActivity extends AppCompatActivity {
 
     private void setAnimation() {
         //Animate 1
-        splashImageBarat.animate().alpha(1).translationY(0).translationX(-10).setDuration(2000).setStartDelay(500).start();
-        splashImageBaratLaut.animate().alpha(1).translationY(0).translationX(-20).setDuration(2000).setStartDelay(500).start();
+        splashImageBarat.animate().alpha(1).translationY(0).translationX(0).setDuration(2000).setStartDelay(500).start();
+        splashImageBaratLaut.animate().alpha(1).translationY(0).translationX(0).setDuration(2000).setStartDelay(500).start();
         splashImageUtara.animate().alpha(1).translationY(0).setDuration(2000).setStartDelay(500).start();
-        splashImageTimurLaut.animate().alpha(1).translationY(0).translationX(20).setDuration(2000).setStartDelay(500).start();
-        splashImageTimur.animate().alpha(1).translationY(0).translationX(10).setDuration(2000).setStartDelay(500).start();
-        splashImageNama.animate().alpha(1).translationY(20).setDuration(2000).setStartDelay(500).start();
+        splashImageTimurLaut.animate().alpha(1).translationY(0).translationX(0).setDuration(2000).setStartDelay(500).start();
+        splashImageTimur.animate().alpha(1).translationY(0).translationX(0).setDuration(2000).setStartDelay(500).start();
+        splashImageNama.animate().alpha(1).translationY(0).setDuration(2000).setStartDelay(500).start();
         splashImageBunder.animate().alpha(1).translationY(0).setDuration(2000).setStartDelay(500).start();
 
     }

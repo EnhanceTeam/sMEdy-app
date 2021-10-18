@@ -21,7 +21,7 @@
         android:id="@+id/splashImageNama"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="76dp"
         android:src="@drawable/logo_part_nama"
         app:layout_constraintEnd_toEndOf="@+id/splashImageUtara"
         app:layout_constraintStart_toStartOf="@+id/splashImageUtara"
@@ -31,41 +31,45 @@
         android:id="@+id/splashImageTimurLaut"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="322dp"
-        android:layout_marginEnd="131dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/logo_part_timurlaut"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/splashImageUtara"
+        app:layout_constraintStart_toStartOf="@+id/splashImageUtara"
+        app:layout_constraintTop_toTopOf="@+id/splashImageUtara" />
 
     <ImageView
         android:id="@+id/splashImageBaratLaut"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="322dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="26dp"
         android:src="@drawable/logo_part_baratlaut"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/splashImageUtara"
+        app:layout_constraintEnd_toEndOf="@+id/splashImageUtara"
+        app:layout_constraintTop_toTopOf="@+id/splashImageUtara" />
 
     <ImageView
         android:id="@+id/splashImageBarat"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="12dp"
         android:src="@drawable/logo_part_barat"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/splashImageUtara"
+        app:layout_constraintEnd_toEndOf="@+id/splashImageBaratLaut"
+        app:layout_constraintTop_toTopOf="@+id/splashImageBaratLaut" />
 
     <ImageView
         android:id="@+id/splashImageTimur"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="340dp"
-        android:layout_marginEnd="114dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="40dp"
         android:src="@drawable/logo_part_timur"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/splashImageTimurLaut"
+        app:layout_constraintStart_toStartOf="@+id/splashImageTimurLaut"
+        app:layout_constraintTop_toTopOf="@+id/splashImageUtara" />
 
     <ImageView
         android:id="@+id/splashImageBunder"
@@ -74,10 +78,7 @@
         android:layout_marginBottom="72dp"
         app:layout_constraintBottom_toBottomOf="@+id/splashImageUtara"
         app:layout_constraintEnd_toEndOf="@+id/splashImageUtara"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/splashImageUtara"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/logo_part_bunder" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
