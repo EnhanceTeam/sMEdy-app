@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Smedy"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".view.ScheduleAppointmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.MusicPlayerActivity"
             android:exported="false" />
         <activity
