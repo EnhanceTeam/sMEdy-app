@@ -1,7 +1,6 @@
 package com.example.smedy.viewmodel;
 
 import android.app.Application;
-import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -9,7 +8,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.smedy.model.Psikiater;
-import com.example.smedy.repositories.PsikiaterRepository;
+import com.example.smedy.repository.PsikiaterRepository;
 
 import java.util.ArrayList;
 

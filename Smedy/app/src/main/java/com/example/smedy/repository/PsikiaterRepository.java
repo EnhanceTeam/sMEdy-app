@@ -1,4 +1,4 @@
-package com.example.smedy.repositories;
+package com.example.smedy.repository;
 
 import android.util.Log;
 
