@@ -185,6 +185,9 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        handler.removeCallbacks(updater);
+        mediaPlayer.pause();
+        musicPlayerPlayPauseImageView.setImageResource(R.drawable.ic_baseline_play_arrow_24);
         finish();
     }
 
