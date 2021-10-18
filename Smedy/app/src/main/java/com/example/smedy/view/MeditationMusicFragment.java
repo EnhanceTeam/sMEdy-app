@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.smedy.R;
 
@@ -16,6 +17,9 @@ import com.example.smedy.R;
  * create an instance of this fragment.
  */
 public class MeditationMusicFragment extends Fragment {
+    private Button btnMeditasiMeditationMusicFragment, btnMusikMeditationMusicFragment;
+    private View divMeditasiMeditationMusicFragment, divMusikMeditationMusicFragment;
+    private String menuBefore = "meditasi";
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,7 +64,64 @@ public class MeditationMusicFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_meditation_music, container, false);
+
+        initVar(view);
+        setListener();
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_meditation_music, container, false);
+        return view;
     }
+
+    private void setListener() {
+        btnMeditasiMeditationMusicFragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(menuBefore.equals("music")){
+                    divMusikMeditationMusicFragment.setVisibility(View.INVISIBLE);
+                    divMeditasiMeditationMusicFragment.setVisibility(View.VISIBLE);
+                    divMeditasiMeditationMusicFragment.setTranslationX(300);
+                    divMeditasiMeditationMusicFragment.animate().translationX(0).setDuration(250).start();
+
+                    loadFragment(new MeditationFragment());
+
+                    menuBefore = "meditasi";
+                }
+            }
+        });
+
+        btnMusikMeditationMusicFragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(menuBefore.equals("meditasi")){
+                    divMusikMeditationMusicFragment.setVisibility(View.VISIBLE);
+                    divMeditasiMeditationMusicFragment.setVisibility(View.INVISIBLE);
+                    divMusikMeditationMusicFragment.setTranslationX(-300);
+                    divMusikMeditationMusicFragment.animate().translationX(0).setDuration(250).start();
+
+                    loadFragment(new MusicFragment());
+
+                    menuBefore = "music";
+                }
+            }
+        });
+    }
+
+    private void initVar(View view) {
+        btnMeditasiMeditationMusicFragment = view.findViewById(R.id.btnMeditasiMeditationMusicFragment);
+        btnMusikMeditationMusicFragment = view.findViewById(R.id.btnMusikMeditationMusicFragment);
+        divMeditasiMeditationMusicFragment = view.findViewById(R.id.divMeditasiMeditationMusicFragment);
+        divMusikMeditationMusicFragment = view.findViewById(R.id.divMusikMeditationMusicFragment);
+
+        loadFragment(new MeditationFragment());
+    }
+
+    private void loadFragment(Fragment fragment){
+        getChildFragmentManager()
+                .beginTransaction()
+                .replace(R.id.consFragmentMeditationMusicFragment, fragment)
+                .commit();
+    }
+
+
 }
