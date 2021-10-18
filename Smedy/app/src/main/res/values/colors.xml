@@ -22,6 +22,11 @@
     <color name="secondary_500">#00979a</color>
     <color name="secondary_700">#007a7a</color>
 
+    <!--  Alternative | Soft Blue  -->
+    <color name="soft_blue_100">#ABD7EB</color>
+    <color name="soft_blue_200">#72BDDE</color>
+    <color name="soft_blue_variant">#84BFD7</color>
+
     <!--  State  -->
     <color name="state_disabled">#C4C4C4</color>
 
