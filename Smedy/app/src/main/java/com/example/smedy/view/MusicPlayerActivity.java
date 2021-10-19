@@ -50,9 +50,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
 //    protected void onStart() {
 //        super.onStart();
 //        prepareMediaPlayer();
-//        mediaPlayer.start();
-//        musicPlayerPlayPauseImageView.setImageResource(R.drawable.ic_baseline_pause_24);
-//        updateSeekBar();
+//        play();
 //    }
 
     @Override
@@ -63,6 +61,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
         initialize();
         setListener();
         prepareMediaPlayer();
+        play();
         setBuffering();
 
     }
@@ -81,13 +80,9 @@ public class MusicPlayerActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (mediaPlayer.isPlaying()) {
-                    handler.removeCallbacks(updater);
-                    mediaPlayer.pause();
-                    musicPlayerPlayPauseImageView.setImageResource(R.drawable.ic_baseline_play_arrow_24);
+                    pause();
                 } else {
-                    mediaPlayer.start();
-                    musicPlayerPlayPauseImageView.setImageResource(R.drawable.ic_baseline_pause_24);
-                    updateSeekBar();
+                    play();
                 }
             }
         });
@@ -116,6 +111,18 @@ public class MusicPlayerActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void play() {
+        mediaPlayer.start();
+        musicPlayerPlayPauseImageView.setImageResource(R.drawable.ic_baseline_pause_24);
+        updateSeekBar();
+    }
+
+    private void pause() {
+        handler.removeCallbacks(updater);
+        mediaPlayer.pause();
+        musicPlayerPlayPauseImageView.setImageResource(R.drawable.ic_baseline_play_arrow_24);
     }
 
     private void prepareMediaPlayer() {
@@ -185,9 +192,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        handler.removeCallbacks(updater);
-        mediaPlayer.pause();
-        musicPlayerPlayPauseImageView.setImageResource(R.drawable.ic_baseline_play_arrow_24);
+        pause();
         finish();
     }
 

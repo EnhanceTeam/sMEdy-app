@@ -6,5 +6,23 @@
     <string name="signout_btn">sign out</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="appointment">Appointment</string>
+    <string name="tabTitle1">List</string>
+    <string name="tabTitle2">Upcoming</string>
+    <string name="tabTitle3">History</string>
+    <string name="nama">nama</string>
+    <string name="tahun">tahun</string>
+    <string name="lokasi">lokasi</string>
     <string name="img">img</string>
+    <string name="schedule_appointment">Schedule Appointment</string>
+    <string name="psikiater">Psikiater</string>
+    <string name="psikiater_nama">Name : </string>
+    <string name="psikiater_pengalaman">Work Experience : </string>
+    <string name="psikiater_lulusan">Lulusan : </string>
+    <string name="psikiater_lokasi">Location : </string>
+    <string name="psikiater_biaya">Cost : </string>
+    <string name="per_meet">/ Hours</string>
+    <string name="date">Date :</string>
+    <string name="make_appointment">Make Appointment</string>
+    <string name="rupiah">Rp. </string>
 </resources>
