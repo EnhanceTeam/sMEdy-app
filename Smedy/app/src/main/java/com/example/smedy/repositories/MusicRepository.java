@@ -1,4 +1,4 @@
-package com.example.smedy.repository;
+package com.example.smedy.repositories;
 
 import androidx.lifecycle.MutableLiveData;
 
