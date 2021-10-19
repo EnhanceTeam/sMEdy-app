@@ -18,7 +18,7 @@ import com.example.smedy.R;
  */
 public class MeditationMusicFragment extends Fragment {
     private Button btnMeditasiMeditationMusicFragment, btnMusikMeditationMusicFragment;
-    private View divMeditasiMeditationMusicFragment, divMusikMeditationMusicFragment, view;
+    private View divMeditasiMeditationMusicFragment, divMusikMeditationMusicFragment;
     private String menu = "meditasi";
 
     // TODO: Rename parameter arguments, choose names that match
@@ -64,16 +64,16 @@ public class MeditationMusicFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_meditation_music, container, false);
+        View view = inflater.inflate(R.layout.fragment_meditation_music, container, false);
 
-        initVar();
+        initVar(view);
         setListener();
 
         // Inflate the layout for this fragment
         return view;
     }
 
-    private void initVar() {
+    private void initVar(View view) {
         btnMeditasiMeditationMusicFragment = view.findViewById(R.id.btnMeditasiMeditationMusicFragment);
         btnMusikMeditationMusicFragment = view.findViewById(R.id.btnMusikMeditationMusicFragment);
         divMusikMeditationMusicFragment = view.findViewById(R.id.divMusikMeditationMusicFragment);
