@@ -1,6 +1,7 @@
 package com.example.smedy.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smedy.R;
 import com.example.smedy.model.Meditation;
+import com.example.smedy.view.MeditationPlayerActivity;
 
 import java.util.ArrayList;
 
@@ -44,7 +46,9 @@ public class MeditationAdapter extends RecyclerView.Adapter<MeditationAdapter.Me
         holder.cvMeditationFragmentViewholder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(context, MeditationPlayerActivity.class);
+                intent.putExtra("dataMeditasi", meditation);
+                context.startActivity(intent);
             }
         });
     }
