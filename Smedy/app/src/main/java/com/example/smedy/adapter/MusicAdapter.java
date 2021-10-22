@@ -13,11 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smedy.R;
 import com.example.smedy.model.Music;
-import com.example.smedy.repository.MusicRepository;
 import com.example.smedy.view.MusicPlayerActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHolder> {
 

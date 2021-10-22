@@ -1,6 +1,8 @@
 package com.example.smedy.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.smedy.R;
 import com.example.smedy.model.Psikiater;
+import com.example.smedy.view.MakeAppointmentFragment;
+import com.example.smedy.view.ScheduleAppointmentActivity;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +51,20 @@ public class PsikiaterAdapter extends RecyclerView.Adapter<PsikiaterAdapter.Card
         holder.TxtTahunCvPsikiater.setText(String.valueOf(psikiater.getTahun()) + " year");
         holder.TxtLokasiCvPsikiater.setText(String.valueOf(psikiater.getLokasi()));
         Glide.with(context).load(psikiater.getFoto()).diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.ImgFotoCvPsikiater);
+
+        holder.CvPsikiater.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ScheduleAppointmentActivity.class);
+                intent.putExtra("nama",psikiater.getNama());
+                intent.putExtra("tahun",psikiater.getTahun());
+                intent.putExtra("foto",psikiater.getFoto());
+                intent.putExtra("lokasi",psikiater.getLokasi());
+                intent.putExtra("lulusan",psikiater.getLulusan());
+                intent.putExtra("biaya",psikiater.getBiaya());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
