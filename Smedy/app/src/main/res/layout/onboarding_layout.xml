@@ -7,41 +7,42 @@
 
     <ImageView
         android:id="@+id/onboardingImageView"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="32dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/onboardingTextViewDescription"
+        app:layout_constraintStart_toStartOf="@+id/onboardingTextViewDescription"
+        app:layout_constraintTop_toBottomOf="@+id/onboardingTextViewDescription"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <TextView
         android:id="@+id/onboardingTextViewHeading"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="45dp"
+        android:fontFamily="sans-serif-medium"
         android:text="TextView"
-        android:textColor="@color/primary_500"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/onboardingImageView"
-        app:layout_constraintStart_toStartOf="@+id/onboardingImageView"
-        app:layout_constraintTop_toBottomOf="@+id/onboardingImageView" />
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/onboardingTextViewDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="20dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-thin"
         android:text="TextView"
-        android:textColor="@color/primary_500"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/onboardingTextViewHeading"
+        app:layout_constraintStart_toStartOf="@+id/onboardingTextViewHeading"
         app:layout_constraintTop_toBottomOf="@+id/onboardingTextViewHeading" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
