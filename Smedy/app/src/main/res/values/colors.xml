@@ -27,9 +27,27 @@
     <color name="soft_blue_200">#72BDDE</color>
     <color name="soft_blue_variant">#84BFD7</color>
 
-    <!--  State  -->
-    <color name="state_disabled">#C4C4C4</color>
+    <!--  Alternative | Soft Green  -->
+    <color name="soft_green_200">#acd1af</color>
+    <color name="soft_green_300">#8ac18e</color>
 
-    <!--  Now Useless  -->
+    <!--  Alternative | Soft Red  -->
+    <color name="soft_red_200">#FF9C91</color>
+    <color name="soft_red_300">#FD7365</color>
+
+    <!--  Background  -->
+    <color name="blue_background">#FAFDFF</color>
+    <color name="dark_grey">#3B3B3D</color>
+
+    <!--  Surface  -->
+    <color name="white_smoke">#F4F6FA</color>
+    <color name="light_grey">#9FA7AF</color>
+
+    <!--  State  -->
+    <color name="placeholder">#C4C4C4</color>
     <color name="blue_500">#3B9DFF</color>
+
+    <!--  Status  -->
+    <color name="success">#25C461</color>
+    <color name="warning">#FCD036</color>
 </resources>
