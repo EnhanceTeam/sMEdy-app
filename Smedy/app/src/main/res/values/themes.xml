@@ -8,10 +8,19 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/secondary_200</item>
         <item name="colorSecondaryVariant">@color/secondary_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/blue_background</item> <!--  ?attr/colorPrimaryVariant  -->
+        <!--  ?attr/colorPrimaryVariant  -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/blue_background</item>
         <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your theme here. -->
+        <item name="android:colorBackground">@color/blue_background</item>
+    </style>
+
+    <!--  Toolbar  -->
+    <style name="ToolbarColor">
+<!--        <item name="android:textColorPrimary">@color/black</item>-->
+<!--        <item name="android:textColorSecondary">@color/black</item>-->
+        <item name="android:backgroundTint">@color/blue_background</item>
     </style>
 </resources>

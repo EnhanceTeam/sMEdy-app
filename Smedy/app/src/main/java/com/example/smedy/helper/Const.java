@@ -6,4 +6,9 @@ public class Const {
     //https://firebasestorage.googleapis.com/v0/b/smedy-enhance.appspot.com/o/music%2Fcali.mp3?alt=media&token=4b99f7a4-6c3f-419d-898a-2314518b0f6b
     public static final String MUSIC_LINK = "https://firebasestorage.googleapis.com/v0/b/smedy-enhance.appspot.com/o/music%2F";
     public static final String MUSIC_TOKEN = "?alt=media&token=";
+
+    public static final String DB_USER_COLLECTION = "user_collection";
+    public static final String DB_APPOINTMENT = "appointment";
+    public static final String DB_HISTORY = "history";
+    public static final String DB_PSYCHOLOGIST = "psychologist";
 }

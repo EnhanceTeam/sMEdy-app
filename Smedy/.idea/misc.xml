@@ -22,9 +22,15 @@
         <entry key="..\:/Bryan/Document/GitHub/sMEdy-app/Smedy/app/src/main/res/layout/activity_on_boarding.xml" value="0.36666666666666664" />
         <entry key="..\:/Bryan/Document/GitHub/sMEdy-app/Smedy/app/src/main/res/layout/activity_register.xml" value="0.36666666666666664" />
         <entry key="..\:/Bryan/Document/GitHub/sMEdy-app/Smedy/app/src/main/res/layout/activity_schedule_appointment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Bryan/Document/GitHub/sMEdy-app/Smedy/app/src/main/res/layout/activity_splash.xml" value="0.36666666666666664" />
+        <entry key="..\:/Bryan/Document/GitHub/sMEdy-app/Smedy/app/src/main/res/layout/card_appointment.xml" value="0.5" />
         <entry key="..\:/Bryan/Document/GitHub/sMEdy-app/Smedy/app/src/main/res/layout/card_music.xml" value="0.36666666666666664" />
         <entry key="..\:/Bryan/Document/GitHub/sMEdy-app/Smedy/app/src/main/res/layout/card_psychologist.xml" value="0.36666666666666664" />
         <entry key="..\:/Bryan/Document/GitHub/sMEdy-app/Smedy/app/src/main/res/layout/card_upcoming_appointment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Bryan/Document/GitHub/sMEdy-app/Smedy/app/src/main/res/layout/fragment_appointment.xml" value="0.33" />
+        <entry key="..\:/Bryan/Document/GitHub/sMEdy-app/Smedy/app/src/main/res/layout/fragment_appointment_history.xml" value="0.36666666666666664" />
+        <entry key="..\:/Bryan/Document/GitHub/sMEdy-app/Smedy/app/src/main/res/layout/fragment_appointment_list.xml" value="0.36666666666666664" />
+        <entry key="..\:/Bryan/Document/GitHub/sMEdy-app/Smedy/app/src/main/res/layout/fragment_appointment_upcoming.xml" value="0.36666666666666664" />
         <entry key="..\:/Bryan/Document/GitHub/sMEdy-app/Smedy/app/src/main/res/layout/fragment_make_appointment.xml" value="0.36666666666666664" />
         <entry key="..\:/Bryan/Document/GitHub/sMEdy-app/Smedy/app/src/main/res/layout/fragment_meditation.xml" value="0.36666666666666664" />
         <entry key="..\:/Bryan/Document/GitHub/sMEdy-app/Smedy/app/src/main/res/layout/fragment_meditation_music.xml" value="0.36666666666666664" />
