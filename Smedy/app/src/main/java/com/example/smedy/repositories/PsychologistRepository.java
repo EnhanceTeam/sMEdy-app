@@ -1,11 +1,12 @@
-package com.example.smedy.repository;
+package com.example.smedy.repositories;
 
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.smedy.model.Psikiater;
+import com.example.smedy.helper.Const;
+import com.example.smedy.model.Psychologist;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -15,46 +16,47 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PsikiaterRepository {
+public class PsychologistRepository {
 
-    private static PsikiaterRepository repository;
-    private ArrayList<Psikiater> listPsikiater = new ArrayList<>();
-    private MutableLiveData<ArrayList<Psikiater>> result = new MutableLiveData<>();
+    private static PsychologistRepository repository;
+    private ArrayList<Psychologist> listPsychologist = new ArrayList<>();
+    private MutableLiveData<ArrayList<Psychologist>> result = new MutableLiveData<>();
+
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+
     private static final String TAG = "Repo";
 
-    private PsikiaterRepository(){}
+    private PsychologistRepository(){}
 
-    public static PsikiaterRepository getInstance(){
+    public static PsychologistRepository getInstance(){
         if (repository == null){
-            repository = new PsikiaterRepository();
+            repository = new PsychologistRepository();
         }
         return repository;
     }
 
-    public MutableLiveData<ArrayList<Psikiater>> getPsikiaterData(){
+    public MutableLiveData<ArrayList<Psychologist>> getPsychologistData(){
 
         loadDatabase();
 
-        result.setValue(listPsikiater);
         return result;
     }
 
     private void loadDatabase(){
 
-        db.collection("psychologist").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        db.collection(Const.DB_PSYCHOLOGIST).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
-                listPsikiater.clear();
+                listPsychologist.clear();
                 if (!queryDocumentSnapshots.isEmpty()){
                     List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
 
                     for (DocumentSnapshot documentSnapshot : list){
-                        listPsikiater.add(documentSnapshot.toObject(Psikiater.class));
+                        listPsychologist.add(documentSnapshot.toObject(Psychologist.class));
                     }
 
-                    result.postValue(listPsikiater);
+                    result.setValue(listPsychologist);
                     Log.e(TAG,"onSuccess: added");
                 }
             }

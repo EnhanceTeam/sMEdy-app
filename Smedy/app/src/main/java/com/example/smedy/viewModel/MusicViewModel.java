@@ -1,4 +1,4 @@
-package com.example.smedy.viewModel;
+package com.example.smedy.viewmodel;
 
 import android.app.Application;
 

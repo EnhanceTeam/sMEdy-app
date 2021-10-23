@@ -1,21 +1,22 @@
 <resources>
     <string name="app_name">sMEdy</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet.</string>
-    <string name="register_btn">register</string>
-    <string name="login_btn">login</string>
-    <string name="signout_btn">sign out</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="signout">Sign out</string>
+    <string name="register_now">Register now</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="appointment">Appointment</string>
-    <string name="tabTitle1">List</string>
-    <string name="tabTitle2">Upcoming</string>
-    <string name="tabTitle3">History</string>
+    <string name="list">List</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="history">History</string>
     <string name="nama">nama</string>
     <string name="tahun">tahun</string>
     <string name="lokasi">lokasi</string>
     <string name="img">img</string>
     <string name="schedule_appointment">Schedule Appointment</string>
-    <string name="psikiater">Psikiater</string>
+    <string name="psychologist">Psychologist</string>
     <string name="psikiater_nama">Name : </string>
     <string name="psikiater_pengalaman">Work Experience : </string>
     <string name="psikiater_lulusan">Lulusan : </string>
@@ -28,6 +29,13 @@
     <string name="welcome">Welcome,</string>
     <string name="quotes">Quotes For You</string>
     <string name="relax">Relax Your Mind</string>
-    <string name="psychologist">Our Psychologist</string>
     <string name="see_all">See All</string>
+    <string name="upcoming_appointment">Upcoming Appointment</string>
+    <string name="black_large_bullet">\u2B24</string>
+    <string name="our_psychologist">Our Psychologist</string>
+    <string name="rating">0.0</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
+    <string name="forgot_password">Forgot password?</string>
 </resources>

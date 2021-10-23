@@ -2,11 +2,11 @@ package com.example.smedy.model;
 
 import java.util.ArrayList;
 
-public class Psikiater {
+public class Psychologist {
     private String nama, lulusan, tahun, foto, lokasi, biaya;
     private Integer id;
 
-    public Psikiater() {
+    public Psychologist() {
         this.id = 0;
         this.nama = "";
         this.lulusan = "";
@@ -16,13 +16,13 @@ public class Psikiater {
         this.biaya = "";
     }
 
-    public Psikiater(String nama, String tahun, String lokasi) {
+    public Psychologist(String nama, String tahun, String lokasi) {
         this.nama = "";
         this.tahun = "";
         this.lokasi = "";
     }
 
-    public Psikiater(Integer id, String nama, String lulusan, String tahun, String foto, String lokasi, String biaya) {
+    public Psychologist(Integer id, String nama, String lulusan, String tahun, String foto, String lokasi, String biaya) {
         this.id = id;
         this.nama = nama;
         this.lulusan = lulusan;

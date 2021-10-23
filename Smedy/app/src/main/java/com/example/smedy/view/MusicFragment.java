@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import com.example.smedy.R;
 import com.example.smedy.adapter.MusicAdapter;
 import com.example.smedy.model.Music;
-import com.example.smedy.viewModel.MusicViewModel;
+import com.example.smedy.viewmodel.MusicViewModel;
 
 import java.util.ArrayList;
 

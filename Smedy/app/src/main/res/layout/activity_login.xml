@@ -13,11 +13,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="80dp"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="sans-serif-medium"
         android:text="Welcome Back!"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,10 +25,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="sans-serif-light"
         android:text="@string/lorem_ipsum"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@color/black"
-        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/logTextViewTitle"
         app:layout_constraintTop_toBottomOf="@+id/logTextViewTitle" />
 
@@ -63,7 +62,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:boxBackgroundMode="outline"
         app:boxStrokeColor="@color/blue_500"
         app:counterEnabled="false"
@@ -84,15 +83,26 @@
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/logTextViewForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/forgot_password"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+        android:textColor="@color/blue_500"
+        app:layout_constraintEnd_toEndOf="@+id/logTextInputPassword"
+        app:layout_constraintTop_toBottomOf="@+id/logTextInputPassword" />
+
     <Button
         android:id="@+id/logButtonLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/login_btn"
+        android:text="@string/login"
         app:layout_constraintEnd_toEndOf="@+id/logTextInputPassword"
         app:layout_constraintStart_toStartOf="@+id/logTextInputPassword"
-        app:layout_constraintTop_toBottomOf="@+id/logTextInputPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/logTextViewForgotPassword" />
 
     <View
         android:id="@+id/divider"
@@ -102,6 +112,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:background="?android:attr/listDivider"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logButtonLogin" />
@@ -111,6 +122,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:visibility="gone"
         app:cardCornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="@+id/logButtonLogin"
         app:layout_constraintStart_toStartOf="@+id/logButtonLogin"
@@ -150,26 +162,27 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="72dp"
-        android:layout_marginBottom="24dp"
-        android:fontFamily="@font/roboto"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="64dp"
         android:text="New to sMEdy?"
-        android:textSize="12sp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/logButtonLogin"
+        app:layout_constraintStart_toStartOf="@+id/logButtonLogin"
+        app:layout_constraintTop_toBottomOf="@+id/logCardViewGoogle"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/logTextViewRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:fontFamily="@font/roboto"
-        android:text="Register now"
+        android:text="@string/register_now"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
         android:textColor="@color/blue_500"
-        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView7"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="@+id/textView7"
         app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

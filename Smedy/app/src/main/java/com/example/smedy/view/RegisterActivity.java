@@ -163,14 +163,33 @@ public class RegisterActivity extends AppCompatActivity {
                                     public void onSuccess(Void unused) {
                                         Toast.makeText(RegisterActivity.this, "Account Registered!", Toast.LENGTH_SHORT).show();
 
-                                        FirebaseAuth.getInstance().signOut();
-                                        FirebaseFirestore.getInstance().terminate();
+//                                        FirebaseAuth.getInstance().signOut();
+//                                        FirebaseFirestore.getInstance().terminate();
+//
+//                                        clearError();
+//
+//                                        intent = new Intent(getBaseContext(), LoginActivity.class);
+//                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                                        startActivity(intent);
 
-                                        clearError();
+                                        //==Start of Auto Login
+                                        mAuth.signInWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                                            @Override
+                                            public void onSuccess(AuthResult authResult) {
+                                                intent = new Intent(getBaseContext(), MainActivity.class);
+                                                startActivity(intent);
+                                                finish();
 
-                                        intent = new Intent(getBaseContext(), LoginActivity.class);
-                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                        startActivity(intent);
+                                                clearError();
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Toast.makeText(RegisterActivity.this, "Failed to Auto Login", Toast.LENGTH_SHORT).show();
+                                                Log.d("error", e.toString());
+                                            }
+                                        });
+                                        //==End of Auto Login
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override

@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.smedy.R;
+import com.example.smedy.view.fragments.AppointmentFragment;
 
 public class MainActivity extends AppCompatActivity {
     private MeowBottomNavigation bottomNavbarMain;
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new MeditationMusicFragment();
                         break;
                     case 3:
-                        fragment = new MakeAppointmentFragment();
+                        fragment = new AppointmentFragment();
                         break;
 
                 }
