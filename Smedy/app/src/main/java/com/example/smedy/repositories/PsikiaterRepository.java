@@ -42,7 +42,7 @@ public class PsikiaterRepository {
 
     private void loadDatabase(){
 
-        db.collection("psikiater").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        db.collection("psychologist").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
