@@ -13,7 +13,7 @@
     <string name="history">History</string>
     <string name="nama">nama</string>
     <string name="tahun">tahun</string>
-    <string name="lokasi">lokasi</string>
+    <string name="location">Location</string>
     <string name="img">img</string>
     <string name="schedule_appointment">Schedule Appointment</string>
     <string name="psychologist">Psychologist</string>
@@ -46,4 +46,9 @@
     <string name="save">Save</string>
     <string name="experience">Experience</string>
     <string name="education">Education</string>
+    <string name="number">0</string>
+    <string name="contact_information">Contact Information</string>
+    <string name="working_hour">Working Hour</string>
+    <string name="email">Email</string>
+    <string name="schedule">Schedule</string>
 </resources>

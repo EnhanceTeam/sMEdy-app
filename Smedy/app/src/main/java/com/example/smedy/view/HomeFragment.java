@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
 
-    private RecyclerView RVPsikologHome, RVMusicHome, RVMeditationHome;
+    private RecyclerView RVPsychologistHome, RVMusicHome, RVMeditationHome;
     private ImageView ImgUserHome;
     private View view;
 
@@ -58,7 +58,7 @@ public class HomeFragment extends Fragment {
         });
 
         //Psikolog
-        RVPsikologHome = view.findViewById(R.id.RVPsikologHome);
+        RVPsychologistHome = view.findViewById(R.id.RVPsychologistHome);
 
         psychologistViewModel = new ViewModelProvider(getActivity()).get(com.example.smedy.viewmodel.PsychologistViewModel.class);
         psychologistViewModel.getPsychologist();
@@ -84,8 +84,8 @@ public class HomeFragment extends Fragment {
         @Override
         public void onChanged(ArrayList<Psychologist> ListPsychologists) {
             psikologHomeAdapter = new PsikologHomeAdapter(ListPsychologists, getActivity());
-            RVPsikologHome.setLayoutManager(new LinearLayoutManager(getActivity()));
-            RVPsikologHome.setAdapter(psikologHomeAdapter);
+            RVPsychologistHome.setLayoutManager(new LinearLayoutManager(getActivity()));
+            RVPsychologistHome.setAdapter(psikologHomeAdapter);
         }
     };
 

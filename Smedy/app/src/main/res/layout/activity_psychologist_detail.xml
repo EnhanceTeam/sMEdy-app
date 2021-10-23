@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activities.ScheduleAppointmentActivity">
+    tools:context=".view.activities.PsychologistDetailActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbarPsychologistActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ToolbarColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:title="@string/psychologist" />
 
     <androidx.core.widget.NestedScrollView
@@ -23,14 +26,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/toolbarPsychologistActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imgFotoScheduleAppointment"
+                android:id="@+id/imgProfilePsychologistActivity"
                 android:layout_width="114dp"
                 android:layout_height="114dp"
                 android:layout_marginStart="24dp"
@@ -41,44 +44,48 @@
                 tools:srcCompat="@tools:sample/avatars[0]" />
 
             <TextView
-                android:id="@+id/txtViewNamaScheduleAppointment"
+                android:id="@+id/txtNamePsychologistActivity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="24dp"
                 android:text="TextView"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imgFotoScheduleAppointment"
-                app:layout_constraintTop_toTopOf="@+id/imgFotoScheduleAppointment" />
+                app:layout_constraintStart_toEndOf="@+id/imgProfilePsychologistActivity"
+                app:layout_constraintTop_toTopOf="@+id/imgProfilePsychologistActivity" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/txtSpecialistPsychologistActivity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif-light"
                 android:text="TextView"
-                app:layout_constraintEnd_toEndOf="@+id/txtViewNamaScheduleAppointment"
-                app:layout_constraintStart_toStartOf="@+id/txtViewNamaScheduleAppointment"
-                app:layout_constraintTop_toBottomOf="@+id/txtViewNamaScheduleAppointment" />
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                app:layout_constraintEnd_toEndOf="@+id/txtNamePsychologistActivity"
+                app:layout_constraintStart_toStartOf="@+id/txtNamePsychologistActivity"
+                app:layout_constraintTop_toBottomOf="@+id/txtNamePsychologistActivity" />
 
             <ImageView
                 android:id="@+id/imageView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="@+id/textView4"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                android:tint="@color/primary_500"
+                app:layout_constraintStart_toStartOf="@+id/txtSpecialistPsychologistActivity"
+                app:layout_constraintTop_toBottomOf="@+id/txtSpecialistPsychologistActivity"
                 app:srcCompat="@drawable/ic_baseline_star_rate_24" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/txtRatingPsychologistActivity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:text="@string/rating"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-                app:layout_constraintEnd_toEndOf="@+id/textView4"
+                app:layout_constraintEnd_toEndOf="@+id/txtSpecialistPsychologistActivity"
                 app:layout_constraintStart_toEndOf="@+id/imageView10"
                 app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
@@ -88,9 +95,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 app:cardCornerRadius="8dp"
-                app:layout_constraintEnd_toEndOf="@+id/textView9"
-                app:layout_constraintStart_toStartOf="@+id/imgFotoScheduleAppointment"
-                app:layout_constraintTop_toBottomOf="@+id/imgFotoScheduleAppointment">
+                app:layout_constraintEnd_toEndOf="@+id/txtRatingPsychologistActivity"
+                app:layout_constraintStart_toStartOf="@+id/imgProfilePsychologistActivity"
+                app:layout_constraintTop_toBottomOf="@+id/imgProfilePsychologistActivity">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -98,11 +105,12 @@
                     android:background="@color/white_smoke">
 
                     <TextView
-                        android:id="@+id/txtViewPengalamanScheduleAppointment"
+                        android:id="@+id/txtExperiencePsychologistActivity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="TextView"
+                        android:text="@string/number"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                         android:textColor="@color/dark_grey"
                         app:layout_constraintEnd_toStartOf="@+id/divider2"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -117,11 +125,12 @@
                         android:layout_marginBottom="24dp"
                         android:alpha="0.6"
                         android:text="@string/experience"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                         android:textColor="@color/dark_grey"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/txtViewPengalamanScheduleAppointment"
-                        app:layout_constraintStart_toStartOf="@+id/txtViewPengalamanScheduleAppointment"
-                        app:layout_constraintTop_toBottomOf="@+id/txtViewPengalamanScheduleAppointment" />
+                        app:layout_constraintEnd_toEndOf="@+id/txtExperiencePsychologistActivity"
+                        app:layout_constraintStart_toStartOf="@+id/txtExperiencePsychologistActivity"
+                        app:layout_constraintTop_toBottomOf="@+id/txtExperiencePsychologistActivity" />
 
                     <View
                         android:id="@+id/divider2"
@@ -129,16 +138,17 @@
                         android:layout_height="0dp"
                         android:background="?android:attr/listDivider"
                         app:layout_constraintBottom_toBottomOf="@+id/textView14"
-                        app:layout_constraintEnd_toStartOf="@+id/txtViewLulusanScheduleAppointment"
+                        app:layout_constraintEnd_toStartOf="@+id/txtEducationPsychologistActivity"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/txtViewPengalamanScheduleAppointment"
-                        app:layout_constraintTop_toTopOf="@+id/txtViewPengalamanScheduleAppointment" />
+                        app:layout_constraintStart_toEndOf="@+id/txtExperiencePsychologistActivity"
+                        app:layout_constraintTop_toTopOf="@+id/txtExperiencePsychologistActivity" />
 
                     <TextView
-                        android:id="@+id/txtViewLulusanScheduleAppointment"
+                        android:id="@+id/txtEducationPsychologistActivity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView"
+                        android:text="@string/number"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                         android:textColor="@color/dark_grey"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -152,11 +162,12 @@
                         android:layout_marginTop="8dp"
                         android:alpha="0.6"
                         android:text="@string/education"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                         android:textColor="@color/dark_grey"
                         app:layout_constraintBottom_toBottomOf="@+id/divider2"
-                        app:layout_constraintEnd_toEndOf="@+id/txtViewLulusanScheduleAppointment"
-                        app:layout_constraintStart_toStartOf="@+id/txtViewLulusanScheduleAppointment"
-                        app:layout_constraintTop_toBottomOf="@+id/txtViewLulusanScheduleAppointment" />
+                        app:layout_constraintEnd_toEndOf="@+id/txtEducationPsychologistActivity"
+                        app:layout_constraintStart_toStartOf="@+id/txtEducationPsychologistActivity"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEducationPsychologistActivity" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
@@ -166,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:fontFamily="sans-serif-medium"
-                android:text="TextView"
+                android:text="@string/contact_information"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 app:layout_constraintEnd_toEndOf="@+id/cardView6"
                 app:layout_constraintStart_toStartOf="@+id/cardView6"
@@ -177,17 +188,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:tint="@color/primary_500"
                 app:layout_constraintStart_toStartOf="@+id/textView16"
                 app:layout_constraintTop_toBottomOf="@+id/textView16"
                 app:srcCompat="@drawable/ic_baseline_location_on_24" />
 
             <TextView
-                android:id="@+id/txtViewLokasiScheduleAppointment"
+                android:id="@+id/txtLocationPsychologistActivity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:fontFamily="sans-serif-light"
-                android:text="TextView"
+                android:text="@string/location"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView11"
                 app:layout_constraintEnd_toEndOf="@+id/textView16"
@@ -199,18 +211,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:tint="@color/primary_500"
                 app:layout_constraintStart_toStartOf="@+id/imageView11"
                 app:layout_constraintTop_toBottomOf="@+id/imageView11"
                 app:srcCompat="@drawable/ic_baseline_local_phone_24" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/txtPhonePsychologistActivity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="TextView"
+                android:text="@string/number"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView12"
-                app:layout_constraintEnd_toEndOf="@+id/txtViewLokasiScheduleAppointment"
+                app:layout_constraintEnd_toEndOf="@+id/txtLocationPsychologistActivity"
                 app:layout_constraintStart_toEndOf="@+id/imageView12"
                 app:layout_constraintTop_toTopOf="@+id/imageView12" />
 
@@ -219,18 +232,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:tint="@color/primary_500"
                 app:layout_constraintStart_toStartOf="@+id/imageView12"
                 app:layout_constraintTop_toBottomOf="@+id/imageView12"
                 app:srcCompat="@drawable/ic_baseline_email_24" />
 
             <TextView
-                android:id="@+id/textView19"
+                android:id="@+id/txtEmailPsychologistActivity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="TextView"
+                android:text="@string/email"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView13"
-                app:layout_constraintEnd_toEndOf="@+id/textView18"
+                app:layout_constraintEnd_toEndOf="@+id/txtPhonePsychologistActivity"
                 app:layout_constraintStart_toEndOf="@+id/imageView13"
                 app:layout_constraintTop_toTopOf="@+id/imageView13" />
 
@@ -240,9 +254,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:fontFamily="sans-serif-medium"
-                android:text="TextView"
+                android:text="@string/working_hour"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                app:layout_constraintEnd_toEndOf="@+id/textView19"
+                app:layout_constraintEnd_toEndOf="@+id/txtEmailPsychologistActivity"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/imageView13"
                 app:layout_constraintTop_toBottomOf="@+id/imageView13" />
@@ -252,7 +266,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Button"
+                android:text="@string/number"
                 app:layout_constraintEnd_toStartOf="@+id/button2"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -262,7 +276,7 @@
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button"
+                android:text="@string/number"
                 app:layout_constraintBottom_toBottomOf="@+id/button"
                 app:layout_constraintEnd_toStartOf="@+id/button3"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -273,7 +287,7 @@
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button"
+                android:text="@string/number"
                 app:layout_constraintBottom_toBottomOf="@+id/button2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -286,7 +300,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:fontFamily="sans-serif-medium"
-                android:text="TextView"
+                android:text="@string/schedule"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 app:layout_constraintEnd_toEndOf="@+id/textView5"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -303,7 +317,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
             <Button
-                android:id="@+id/btnMakeScheduleAppointment"
+                android:id="@+id/btnMakeAppointmentPsychologistActivity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"

@@ -22,7 +22,7 @@
             android:name=".view.MeditationPlayerActivity"
             android:exported="true" />
         <activity
-            android:name=".view.activities.ScheduleAppointmentActivity"
+            android:name=".view.activities.PsychologistDetailActivity"
             android:exported="true" />
         <activity
             android:name=".view.MusicPlayerActivity"

@@ -16,7 +16,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.smedy.R;
 import com.example.smedy.model.Psychologist;
-import com.example.smedy.view.activities.ScheduleAppointmentActivity;
+import com.example.smedy.view.activities.PsychologistDetailActivity;
 
 import java.util.ArrayList;
 
@@ -51,15 +51,8 @@ public class PsychologistAdapter extends RecyclerView.Adapter<PsychologistAdapte
         holder.CvPsikiater.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, ScheduleAppointmentActivity.class);
-                intent.putExtra("nama", psychologist.getNama());
-                intent.putExtra("tahun", psychologist.getTahun());
-                intent.putExtra("foto", psychologist.getFoto());
-                intent.putExtra("lokasi", psychologist.getLokasi());
-                intent.putExtra("lulusan", psychologist.getLulusan());
-                intent.putExtra("biaya", psychologist.getBiaya());
-                intent.putExtra("rating", psychologist.getRating());
-                intent.putExtra("specialist", psychologist.getSpecialist());
+                Intent intent = new Intent(context, PsychologistDetailActivity.class);
+                intent.putExtra("psychologist", psychologist);
 
                 context.startActivity(intent);
             }

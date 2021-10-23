@@ -26,44 +26,45 @@ public class PsychologistRepository {
 
     private static final String TAG = "Repo";
 
-    private PsychologistRepository(){}
+    private PsychologistRepository() {
+    }
 
-    public static PsychologistRepository getInstance(){
-        if (repository == null){
+    public static PsychologistRepository getInstance() {
+        if (repository == null) {
             repository = new PsychologistRepository();
         }
         return repository;
     }
 
-    public MutableLiveData<ArrayList<Psychologist>> getPsychologistData(){
+    public MutableLiveData<ArrayList<Psychologist>> getPsychologistData() {
 
         loadDatabase();
 
         return result;
     }
 
-    private void loadDatabase(){
+    private void loadDatabase() {
 
         db.collection(Const.DB_PSYCHOLOGIST).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
                 listPsychologist.clear();
-                if (!queryDocumentSnapshots.isEmpty()){
+                if (!queryDocumentSnapshots.isEmpty()) {
                     List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
 
-                    for (DocumentSnapshot documentSnapshot : list){
+                    for (DocumentSnapshot documentSnapshot : list) {
                         listPsychologist.add(documentSnapshot.toObject(Psychologist.class));
                     }
 
                     result.setValue(listPsychologist);
-                    Log.e(TAG,"onSuccess: added");
+                    Log.e(TAG, "onSuccess: added");
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Log.e(TAG,"onFailure",e);
+                Log.e(TAG, "onFailure", e);
             }
         });
     }
