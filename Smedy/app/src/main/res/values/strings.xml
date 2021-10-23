@@ -25,4 +25,9 @@
     <string name="date">Date :</string>
     <string name="make_appointment">Make Appointment</string>
     <string name="rupiah">Rp. </string>
+    <string name="welcome">Welcome,</string>
+    <string name="quotes">Quotes For You</string>
+    <string name="relax">Relax Your Mind</string>
+    <string name="psychologist">Our Psychologist</string>
+    <string name="see_all">See All</string>
 </resources>
