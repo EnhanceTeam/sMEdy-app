@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
 //    GoogleSignInClient googleSignInClient;
 //    GoogleApiClient mGoogleApiClient;
 //    FirebaseAuth.AuthStateListener mAuthListener;
-    private TextView logTextViewTitle, logTextViewDesc, logTextViewRegister;
+    private TextView logTextViewTitle, logTextViewDesc, logTextViewRegister, logTextViewForgotPassword;
     private TextInputLayout logTextInputEmail, logTextInputPassword;
     private Button logButtonLogin;
     private CardView logCardViewGoogle;
@@ -267,6 +267,7 @@ public class LoginActivity extends AppCompatActivity {
         logTextViewDesc.setTranslationX(800);
         logTextInputEmail.setTranslationX(800);
         logTextInputPassword.setTranslationX(800);
+        logTextViewForgotPassword.setTranslationX(800);
         logButtonLogin.setTranslationX(800);
         logCardViewGoogle.setTranslationX(800);
 
@@ -274,6 +275,7 @@ public class LoginActivity extends AppCompatActivity {
         logTextViewDesc.setAlpha(0);
         logTextInputEmail.setAlpha(0);
         logTextInputPassword.setAlpha(0);
+        logTextViewForgotPassword.setAlpha(0);
         logButtonLogin.setAlpha(0);
         logCardViewGoogle.setAlpha(0);
 
@@ -281,6 +283,7 @@ public class LoginActivity extends AppCompatActivity {
         logTextViewDesc.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(250).start();
         logTextInputEmail.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(300).start();
         logTextInputPassword.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(400).start();
+        logTextViewForgotPassword.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(500).start();
         logButtonLogin.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(600).start();
         logCardViewGoogle.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(800).start();
     }
@@ -292,6 +295,7 @@ public class LoginActivity extends AppCompatActivity {
         logTextViewDesc = findViewById(R.id.logTextViewDesc);
         logTextInputEmail = findViewById(R.id.logTextInputEmail);
         logTextInputPassword = findViewById(R.id.logTextInputPassword);
+        logTextViewForgotPassword = findViewById(R.id.logTextViewForgotPassword);
         logButtonLogin = findViewById(R.id.logButtonLogin);
         logCardViewGoogle = findViewById(R.id.logCardViewGoogle);
         logTextViewRegister = findViewById(R.id.logTextViewRegister);
