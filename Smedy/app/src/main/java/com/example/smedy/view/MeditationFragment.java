@@ -3,12 +3,20 @@ package com.example.smedy.view;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.smedy.R;
+import com.example.smedy.adapter.MeditationAdapter;
+import com.example.smedy.model.Meditation;
+import com.example.smedy.viewmodel.MeditationViewModel;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +24,9 @@ import com.example.smedy.R;
  * create an instance of this fragment.
  */
 public class MeditationFragment extends Fragment {
+    private RecyclerView rvMeditationFragment;
+    private MeditationAdapter adapter;
+    private MeditationViewModel meditationViewModel;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,7 +71,35 @@ public class MeditationFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_meditation, container, false);
+
+        initVar(view);
+        setViewModel();
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_meditation, container, false);
+        return view;
     }
+
+    private void setViewModel(){
+        meditationViewModel.getMeditation();
+        meditationViewModel.getMedtationResult().observe(getActivity(), showGetMeditationResult);
+    }
+
+    private Observer<ArrayList<Meditation>> showGetMeditationResult = new Observer<ArrayList<Meditation>>() {
+        @Override
+        public void onChanged(ArrayList<Meditation> listMeditasi) {
+            setAdapter(listMeditasi);
+        }
+    };
+
+    private void initVar(View view){
+        rvMeditationFragment = view.findViewById(R.id.rvMeditationFragment);
+        meditationViewModel = new ViewModelProvider(getActivity()).get(MeditationViewModel.class);
+    }
+
+    private void setAdapter(ArrayList<Meditation> listMeditasi){
+        adapter = new MeditationAdapter(listMeditasi, getActivity());
+        rvMeditationFragment.setAdapter(adapter);
+    }
+
 }

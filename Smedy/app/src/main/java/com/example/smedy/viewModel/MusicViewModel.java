@@ -8,7 +8,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.smedy.model.Music;
-import com.example.smedy.repository.MusicRepository;
+import com.example.smedy.repositories.MusicRepository;
 
 import java.util.ArrayList;
 
