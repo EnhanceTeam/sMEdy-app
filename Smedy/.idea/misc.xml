@@ -6,13 +6,24 @@
         <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/activity_firetest.xml" value="0.1796875" />
         <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/activity_login.xml" value="0.1796875" />
         <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/activity_music_player.xml" value="0.1" />
         <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/activity_on_boarding.xml" value="0.1796875" />
+        <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/activity_profile.xml" value="0.22" />
         <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/activity_register.xml" value="0.1796875" />
         <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/activity_splash.xml" value="0.1796875" />
+        <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/card_appointment.xml" value="0.1796875" />
+        <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/card_music.xml" value="0.3333333333333333" />
+        <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/card_music_playlist.xml" value="0.4466666666666667" />
+        <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/card_psychologist.xml" value="0.22" />
+        <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/fragment_appointment.xml" value="0.22" />
+        <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/fragment_appointment_history.xml" value="0.1" />
+        <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/fragment_appointment_list.xml" value="0.22" />
         <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/fragment_home.xml" value="0.240625" />
         <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/fragment_make_appointment.xml" value="0.1796875" />
-        <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/fragment_meditation_music.xml" value="0.1796875" />
+        <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/fragment_meditation.xml" value="0.1" />
+        <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/fragment_meditation_music.xml" value="0.3333333333333333" />
         <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/fragment_music.xml" value="0.1796875" />
+        <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/meditation_fragment_viewholder.xml" value="0.4466666666666667" />
         <entry key="..\:/ANDRE/Kuliah/Panitia/LO Kreatif/AndroidStudio/sMEdy-app/Smedy/app/src/main/res/layout/onboarding_layout.xml" value="0.1796875" />
         <entry key="..\:/Lomba LO Kreatif/sMEdy App/Smedy/app/src/main/res/font/roboto.xml" value="0.22239583333333332" />
         <entry key="..\:/Lomba LO Kreatif/sMEdy App/Smedy/app/src/main/res/layout/activity_login.xml" value="0.1921875" />
@@ -28,12 +39,11 @@
         <entry key="..\:/ProjectGitHub/sMEdy-app/Smedy/app/src/main/res/layout/card_music.xml" value="0.25416666666666665" />
         <entry key="..\:/ProjectGitHub/sMEdy-app/Smedy/app/src/main/res/layout/fragment_make_appointment.xml" value="0.24010416666666667" />
         <entry key="..\:/ProjectGitHub/sMEdy-app/Smedy/app/src/main/res/layout/fragment_meditation.xml" value="0.16" />
-        <entry key="..\:/ProjectGitHub/sMEdy-app/Smedy/app/src/main/res/layout/fragment_meditation_music.xml" value="0.264" />
+        <entry key="..\:/ProjectGitHub/sMEdy-app/Smedy/app/src/main/res/layout/fragment_meditation_music.xml" value="0.24010416666666667" />
         <entry key="..\:/ProjectGitHub/sMEdy-app/Smedy/app/src/main/res/layout/fragment_meditation_music2.xml" value="0.25416666666666665" />
         <entry key="..\:/ProjectGitHub/sMEdy-app/Smedy/app/src/main/res/layout/fragment_music.xml" value="0.24010416666666667" />
         <entry key="..\:/ProjectGitHub/sMEdy-app/Smedy/app/src/main/res/layout/meditation_fragment_viewholder.xml" value="0.25" />
         <entry key="..\:/ProjectGitHub/sMEdy-app/Smedy/app/src/main/res/layout/music_viewholder.xml" value="0.25416666666666665" />
-        <entry key="..\:/ProjectGitHub/sMEdy-app/Smedy/app/src/main/res/layout/fragment_meditation_music.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/Timothy/Documents/ProjectGitHub/sMEdy-app/Smedy/app/src/main/res/layout/activity_firetest.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Timothy/Documents/ProjectGitHub/sMEdy-app/Smedy/app/src/main/res/layout/activity_login.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/Timothy/Documents/ProjectGitHub/sMEdy-app/Smedy/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />

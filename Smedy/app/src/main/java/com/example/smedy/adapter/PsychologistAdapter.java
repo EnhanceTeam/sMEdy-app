@@ -43,7 +43,9 @@ public class PsychologistAdapter extends RecyclerView.Adapter<PsychologistAdapte
 
         holder.TxtNamaCvPsikiater.setText(psychologist.getNama());
 //        holder.TxtTahunCvPsikiater.setText(String.valueOf(psikiater.getTahun()) + " year");
-//        holder.TxtLokasiCvPsikiater.setText(String.valueOf(psikiater.getLokasi()));
+        holder.TxtLokasiCvPsikiater.setText(String.valueOf(psychologist.getLokasi()));
+        holder.TxtSpecialistCvPsikiater.setText(String.valueOf(psychologist.getSpecialist()));
+        holder.TxtRatingCvPsikiater.setText(String.valueOf(psychologist.getRating()));
         Glide.with(context).load(psychologist.getFoto()).diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.ImgFotoCvPsikiater);
 
         holder.CvPsikiater.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +58,9 @@ public class PsychologistAdapter extends RecyclerView.Adapter<PsychologistAdapte
                 intent.putExtra("lokasi", psychologist.getLokasi());
                 intent.putExtra("lulusan", psychologist.getLulusan());
                 intent.putExtra("biaya", psychologist.getBiaya());
+                intent.putExtra("rating", psychologist.getRating());
+                intent.putExtra("specialist", psychologist.getSpecialist());
+
                 context.startActivity(intent);
             }
         });
@@ -68,7 +73,7 @@ public class PsychologistAdapter extends RecyclerView.Adapter<PsychologistAdapte
 
     public class CardViewViewHolder extends RecyclerView.ViewHolder {
         ImageView ImgFotoCvPsikiater;
-        TextView TxtNamaCvPsikiater;
+        TextView TxtNamaCvPsikiater, TxtSpecialistCvPsikiater, TxtLokasiCvPsikiater, TxtRatingCvPsikiater;
         CardView CvPsikiater;
 
         public CardViewViewHolder(@NonNull View itemView) {
@@ -76,6 +81,9 @@ public class PsychologistAdapter extends RecyclerView.Adapter<PsychologistAdapte
 
             ImgFotoCvPsikiater = itemView.findViewById(R.id.ImgFotoCvPsikiater);
             TxtNamaCvPsikiater = itemView.findViewById(R.id.TxtNamaCvPsikiater);
+            TxtSpecialistCvPsikiater = itemView.findViewById(R.id.TxtSpecialistCvPsikiater);
+            TxtLokasiCvPsikiater = itemView.findViewById(R.id.TxtLokasiCvPsikiater);
+            TxtRatingCvPsikiater = itemView.findViewById(R.id.TxtRatingCvPsikiater);
             CvPsikiater = itemView.findViewById(R.id.CvPsikiater);
         }
     }

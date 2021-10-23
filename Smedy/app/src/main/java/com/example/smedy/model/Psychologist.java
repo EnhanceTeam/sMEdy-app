@@ -3,40 +3,29 @@ package com.example.smedy.model;
 import java.util.ArrayList;
 
 public class Psychologist {
-    private String nama, lulusan, tahun, foto, lokasi, biaya;
+    private String nama, lulusan, tahun, foto, lokasi, biaya, rating, specialist;
     private Integer id;
 
     public Psychologist() {
-        this.id = 0;
         this.nama = "";
         this.lulusan = "";
         this.tahun = "";
         this.foto = "";
         this.lokasi = "";
         this.biaya = "";
+        this.rating = "";
+        this.specialist = "";
+        this.id = 0;
     }
-
-    public Psychologist(String nama, String tahun, String lokasi) {
-        this.nama = "";
-        this.tahun = "";
-        this.lokasi = "";
-    }
-
-    public Psychologist(Integer id, String nama, String lulusan, String tahun, String foto, String lokasi, String biaya) {
-        this.id = id;
+    public Psychologist(String nama, String lulusan, String tahun, String foto, String lokasi, String biaya, String rating, String specialist, Integer id) {
         this.nama = nama;
         this.lulusan = lulusan;
         this.tahun = tahun;
         this.foto = foto;
         this.lokasi = lokasi;
         this.biaya = biaya;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
+        this.rating = rating;
+        this.specialist = specialist;
         this.id = id;
     }
 
@@ -86,5 +75,29 @@ public class Psychologist {
 
     public void setBiaya(String biaya) {
         this.biaya = biaya;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    public String getSpecialist() {
+        return specialist;
+    }
+
+    public void setSpecialist(String specialist) {
+        this.specialist = specialist;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

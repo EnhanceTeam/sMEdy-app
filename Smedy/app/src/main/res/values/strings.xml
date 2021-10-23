@@ -27,7 +27,7 @@
     <string name="make_appointment">Make Appointment</string>
     <string name="rupiah">Rp. </string>
     <string name="welcome">Welcome,</string>
-    <string name="quotes">Quotes For You</string>
+    <string name="meditation">Meditation For You</string>
     <string name="relax">Relax Your Mind</string>
     <string name="see_all">See All</string>
     <string name="upcoming_appointment">Upcoming Appointment</string>
@@ -38,4 +38,10 @@
     <string name="next">Next</string>
     <string name="get_started">Get Started</string>
     <string name="forgot_password">Forgot password?</string>
+    <string name="login_description">Fill your email and password.</string>
+    <string name="register_description">Fill your username, email and password.</string>
+    <string name="Serenity">Serenity</string>
+    <string name="profile">Profile</string>
+    <string name="user_information">User Information</string>
+    <string name="save">Save</string>
 </resources>
