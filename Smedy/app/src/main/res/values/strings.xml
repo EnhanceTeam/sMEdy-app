@@ -44,4 +44,6 @@
     <string name="profile">Profile</string>
     <string name="user_information">User Information</string>
     <string name="save">Save</string>
+    <string name="experience">Experience</string>
+    <string name="education">Education</string>
 </resources>

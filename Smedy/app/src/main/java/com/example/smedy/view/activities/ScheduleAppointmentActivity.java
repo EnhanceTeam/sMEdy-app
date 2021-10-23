@@ -1,4 +1,4 @@
-package com.example.smedy.view;
+package com.example.smedy.view.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,9 +14,7 @@ import com.example.smedy.R;
 
 public class ScheduleAppointmentActivity extends AppCompatActivity {
 
-    private TextView txtViewNamaScheduleAppointment,txtViewLulusanScheduleAppointment
-            ,txtViewPengalamanScheduleAppointment,txtViewBiayaScheduleAppointment
-            , txtViewLokasiScheduleAppointment;
+    private TextView txtViewNamaScheduleAppointment, txtViewLulusanScheduleAppointment, txtViewPengalamanScheduleAppointment, txtViewLokasiScheduleAppointment;
     private ImageView imgFotoScheduleAppointment;
     private Button btnMakeScheduleAppointment;
     private String nama, tahun, lulusan, biaya, lokasi, foto;
@@ -34,7 +32,6 @@ public class ScheduleAppointmentActivity extends AppCompatActivity {
         txtViewNamaScheduleAppointment = findViewById(R.id.txtViewNamaScheduleAppointment);
         txtViewLulusanScheduleAppointment = findViewById(R.id.txtViewLulusanScheduleAppointment);
         txtViewPengalamanScheduleAppointment = findViewById(R.id.txtViewPengalamanScheduleAppointment);
-        txtViewBiayaScheduleAppointment = findViewById(R.id.txtViewBiayaScheduleAppointment);
         txtViewLokasiScheduleAppointment = findViewById(R.id.txtViewLokasiScheduleAppointment);
         imgFotoScheduleAppointment = findViewById(R.id.imgFotoScheduleAppointment);
         btnMakeScheduleAppointment = findViewById(R.id.btnMakeScheduleAppointment);
@@ -51,7 +48,6 @@ public class ScheduleAppointmentActivity extends AppCompatActivity {
         txtViewNamaScheduleAppointment.setText(nama);
         txtViewLulusanScheduleAppointment.setText(lulusan);
         txtViewPengalamanScheduleAppointment.setText(tahun + " year");
-        txtViewBiayaScheduleAppointment.setText(biaya);
         txtViewLokasiScheduleAppointment.setText(lokasi);
 
         btnMakeScheduleAppointment.setOnClickListener(new View.OnClickListener() {

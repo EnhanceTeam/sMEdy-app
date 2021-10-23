@@ -16,7 +16,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.smedy.R;
 import com.example.smedy.model.Psychologist;
-import com.example.smedy.view.ScheduleAppointmentActivity;
+import com.example.smedy.view.activities.ScheduleAppointmentActivity;
 
 import java.util.ArrayList;
 
