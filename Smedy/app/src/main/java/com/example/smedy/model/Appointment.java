@@ -4,7 +4,7 @@ import com.example.smedy.helper.ItemId;
 
 public class Appointment extends ItemId {
 
-    private String namaPsikolog, spesialis, jam, tanggal, status, foto;
+    private String namaPsikolog, spesialis, jam, tanggal, status;
 
     public Appointment() {
         this.namaPsikolog = "";
@@ -12,16 +12,14 @@ public class Appointment extends ItemId {
         this.jam = "";
         this.tanggal = "";
         this.status = "";
-        this.foto = "";
     }
 
-    public Appointment(String namaPsikolog, String spesialis, String jam, String tanggal, String status, String foto) {
+    public Appointment(String namaPsikolog, String spesialis, String jam, String tanggal, String status) {
         this.namaPsikolog = namaPsikolog;
         this.spesialis = spesialis;
         this.jam = jam;
         this.tanggal = tanggal;
         this.status = status;
-        this.foto = foto;
     }
 
     public String getNamaPsikolog() {
@@ -62,13 +60,5 @@ public class Appointment extends ItemId {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
     }
 }
