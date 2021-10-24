@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ABD7EB"
     tools:context=".view.MusicPlayerActivity">
 
     <ImageView
@@ -14,19 +15,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/musicPlayerTitleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/musicPlayerCurrentTimeTextView"
         app:srcCompat="@drawable/ic_baseline_pause_24" />
 
     <SeekBar
         android:id="@+id/musicPlayerSeekBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="32dp"
+        android:progressBackgroundTint="#FFFFFF"
+        android:progressTint="#FFFFFF"
+        android:secondaryProgressTint="#FFFFFF"
+        android:thumbTint="#FFFFFF"
+        android:tickMarkTint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/musicPlayerImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/musicPlayerTitleTextView" />
 
     <TextView
         android:id="@+id/musicPlayerCurrentTimeTextView"
@@ -34,26 +40,28 @@
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:text="00:00"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/musicPlayerSeekBar"
         app:layout_constraintTop_toBottomOf="@+id/musicPlayerSeekBar" />
 
     <ImageView
         android:id="@+id/musicPlayerImageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/googleg_standard_color_18" />
+        app:layout_constraintTop_toBottomOf="@+id/musicImageViewBack"
+        app:srcCompat="@drawable/ic_baseline_music_note_24" />
 
     <TextView
         android:id="@+id/musicPlayerTotalTimeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="02:00"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/musicPlayerSeekBar"
         app:layout_constraintTop_toTopOf="@+id/musicPlayerCurrentTimeTextView" />
 
@@ -61,13 +69,47 @@
         android:id="@+id/musicPlayerTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="Music Title"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/musicPlayerSeekBar"
-        app:layout_constraintStart_toStartOf="@+id/musicPlayerSeekBar"
-        app:layout_constraintTop_toBottomOf="@+id/musicPlayerCurrentTimeTextView" />
+        app:layout_constraintEnd_toEndOf="@+id/musicPlayerImageView"
+        app:layout_constraintStart_toStartOf="@+id/musicPlayerImageView"
+        app:layout_constraintTop_toBottomOf="@+id/musicPlayerImageView" />
+
+    <ImageView
+        android:id="@+id/musicImageViewBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_new_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+         />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="Music"
+        app:layout_constraintBottom_toBottomOf="@+id/musicImageViewBack"
+        app:layout_constraintStart_toEndOf="@+id/musicImageViewBack"
+        app:layout_constraintTop_toTopOf="@+id/musicImageViewBack" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="0dp"
+        android:layout_height="102dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_bg_music_meditation_player" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

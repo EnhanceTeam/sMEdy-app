@@ -228,7 +228,7 @@
                 app:layout_constraintTop_toTopOf="@+id/imageView12" />
 
             <ImageView
-                android:id="@+id/imageView13"
+                android:id="@+id/profileImageViewSignOut"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -243,10 +243,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="@string/email"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView13"
+                app:layout_constraintBottom_toBottomOf="@+id/profileImageViewSignOut"
                 app:layout_constraintEnd_toEndOf="@+id/txtPhonePsychologistActivity"
-                app:layout_constraintStart_toEndOf="@+id/imageView13"
-                app:layout_constraintTop_toTopOf="@+id/imageView13" />
+                app:layout_constraintStart_toEndOf="@+id/profileImageViewSignOut"
+                app:layout_constraintTop_toTopOf="@+id/profileImageViewSignOut" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -258,8 +258,8 @@
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 app:layout_constraintEnd_toEndOf="@+id/txtEmailPsychologistActivity"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/imageView13"
-                app:layout_constraintTop_toBottomOf="@+id/imageView13" />
+                app:layout_constraintStart_toStartOf="@+id/profileImageViewSignOut"
+                app:layout_constraintTop_toBottomOf="@+id/profileImageViewSignOut" />
 
             <Button
                 android:id="@+id/BtnWH1"

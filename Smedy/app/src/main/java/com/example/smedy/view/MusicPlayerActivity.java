@@ -23,7 +23,7 @@ import com.example.smedy.viewmodel.MusicViewModel;
 import java.util.ArrayList;
 
 public class MusicPlayerActivity extends AppCompatActivity {
-    private ImageView musicPlayerImageView, musicPlayerPlayPauseImageView;
+    private ImageView musicImageViewBack, musicPlayerImageView, musicPlayerPlayPauseImageView;
     private SeekBar musicPlayerSeekBar;
     private TextView musicPlayerCurrentTimeTextView, musicPlayerTotalTimeTextView, musicPlayerTitleTextView;
     private MediaPlayer mediaPlayer;
@@ -76,6 +76,13 @@ public class MusicPlayerActivity extends AppCompatActivity {
     }
 
     private void setListener() {
+        musicImageViewBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         musicPlayerPlayPauseImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -149,6 +156,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
         musicFormat = intent.getStringExtra("music");
         tokenFormat = intent.getStringExtra("token");
 
+        musicImageViewBack = findViewById(R.id.musicImageViewBack);
         musicPlayerImageView = findViewById(R.id.musicPlayerImageView);
         musicPlayerPlayPauseImageView = findViewById(R.id.musicPlayerPlayPauseImageView);
         musicPlayerSeekBar = findViewById(R.id.musicPlayerSeekBar);
