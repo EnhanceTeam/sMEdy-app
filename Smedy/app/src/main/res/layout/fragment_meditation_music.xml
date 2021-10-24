@@ -7,66 +7,90 @@
     android:layout_height="match_parent"
     tools:context=".view.MeditationMusicFragment">
 
-    <Button
-        android:id="@+id/btnMusikMeditationMusicFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="42dp"
-        android:layout_marginStart="50dp"
-        android:background="?android:attr/selectableItemBackground"
-        android:text="Musik"
-        android:textColor="@color/primary_700"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/btnMeditasiMeditationMusicFragment"
-        app:layout_constraintStart_toEndOf="@+id/btnMeditasiMeditationMusicFragment"
-        app:layout_constraintTop_toTopOf="@+id/btnMeditasiMeditationMusicFragment" />
-
-    <Button
-        android:id="@+id/btnMeditasiMeditationMusicFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="42dp"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="16dp"
-        android:background="?android:attr/selectableItemBackground"
-        android:text="Meditasi"
-        android:textColor="@color/primary_700"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/divMeditasiMeditationMusicFragment"
-        android:layout_width="50dp"
-        android:layout_height="3dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/rounded_divider"
-        app:layout_constraintEnd_toEndOf="@+id/btnMeditasiMeditationMusicFragment"
-        app:layout_constraintStart_toStartOf="@+id/btnMeditasiMeditationMusicFragment"
-        app:layout_constraintTop_toBottomOf="@+id/btnMeditasiMeditationMusicFragment" />
-
-    <View
-        android:id="@+id/divMusikMeditationMusicFragment"
-        android:layout_width="50dp"
-        android:layout_height="3dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/rounded_divider"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="@+id/btnMusikMeditationMusicFragment"
-        app:layout_constraintStart_toStartOf="@+id/btnMusikMeditationMusicFragment"
-        app:layout_constraintTop_toBottomOf="@+id/btnMusikMeditationMusicFragment" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/consFragmentMeditationMusicFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divMeditasiMeditationMusicFragment"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
         app:layout_constraintVertical_bias="0.0">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_background"
+        android:elevation="10dp"
+        android:minHeight="?attr/actionBarSize"
+        android:paddingStart="16dp"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/Serenity" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <Button
+            android:id="@+id/btnMusikMeditationMusicFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_marginStart="50dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="Musik"
+            android:textColor="@color/primary_700"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/btnMeditasiMeditationMusicFragment"
+            app:layout_constraintStart_toEndOf="@+id/btnMeditasiMeditationMusicFragment"
+            app:layout_constraintTop_toTopOf="@+id/btnMeditasiMeditationMusicFragment" />
+
+        <Button
+            android:id="@+id/btnMeditasiMeditationMusicFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_marginTop="8dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="Meditasi"
+            android:textColor="@color/primary_700"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/divMeditasiMeditationMusicFragment"
+            android:layout_width="50dp"
+            android:layout_height="3dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/rounded_divider"
+            app:layout_constraintEnd_toEndOf="@+id/btnMeditasiMeditationMusicFragment"
+            app:layout_constraintStart_toStartOf="@+id/btnMeditasiMeditationMusicFragment"
+            app:layout_constraintTop_toBottomOf="@+id/btnMeditasiMeditationMusicFragment" />
+
+        <View
+            android:id="@+id/divMusikMeditationMusicFragment"
+            android:layout_width="50dp"
+            android:layout_height="3dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/rounded_divider"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/btnMusikMeditationMusicFragment"
+            app:layout_constraintStart_toStartOf="@+id/btnMusikMeditationMusicFragment"
+            app:layout_constraintTop_toBottomOf="@+id/btnMusikMeditationMusicFragment" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

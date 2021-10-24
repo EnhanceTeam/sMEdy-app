@@ -27,15 +27,15 @@ public class OnBoardingAdapter extends PagerAdapter {
     };
 
     public String [] slide_headings = {
-            "Scan Produk",
-            "Keranjang Belanja",
-            "Take Away"
+            "Audio Meditasi",
+            "Musik Relaksasi",
+            "Konsultasi"
     };
 
     public String [] slide_description = {
-            "Scan berbagai produk pilihan Anda, dengan nuansa berbelanja yang baru",
-            "Dengan keranjang belanja anda dapat mengatur barang belanjaan lebih mudah",
-            "Kami akan mengemas barang belanjaan Anda, sehingga anda tidak perlu membawa banyak barang ketika berbelanja"
+            "Temukan berbagai audio meditasi yang dapat menenangkan hati dan pikiran",
+            "Dengarkan musik relaksasi dimana saja dan kapan saja",
+            "Tanyakan masalahmu pada ahlinya dan temukan solusi yang terbaik"
     };
 
 

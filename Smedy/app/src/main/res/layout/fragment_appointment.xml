@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarAppointment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:elevation="10dp"
+        android:minHeight="?attr/actionBarSize"
+        android:paddingStart="16dp"
+        android:theme="@style/ToolbarColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/appointment" />
+
+    <Button
+        android:id="@+id/btnListAppointment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:text="@string/list"
+        android:textColor="@color/primary_700"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/btnUpcomingAppointment"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarAppointment" />
+
+    <Button
+        android:id="@+id/btnUpcomingAppointment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:text="@string/upcoming"
+        android:textColor="@color/primary_700"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btnListAppointment"
+        app:layout_constraintEnd_toStartOf="@+id/btnHistoryAppointment"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnListAppointment"
+        app:layout_constraintTop_toTopOf="@+id/btnListAppointment" />
+
+    <Button
+        android:id="@+id/btnHistoryAppointment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:text="@string/history"
+        android:textColor="@color/primary_700"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btnUpcomingAppointment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnUpcomingAppointment"
+        app:layout_constraintTop_toTopOf="@+id/btnUpcomingAppointment" />
+
+    <View
+        android:id="@+id/divListAppointmentFragment"
+        android:layout_width="40dp"
+        android:layout_height="3dp"
+        android:background="@drawable/rounded_divider"
+        app:layout_constraintEnd_toEndOf="@+id/btnListAppointment"
+        app:layout_constraintStart_toStartOf="@+id/btnListAppointment"
+        app:layout_constraintTop_toBottomOf="@+id/btnListAppointment" />
+
+    <View
+        android:id="@+id/divUpcomingAppointmentFragment"
+        android:layout_width="40dp"
+        android:layout_height="3dp"
+        android:background="@drawable/rounded_divider"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/divListAppointmentFragment"
+        app:layout_constraintEnd_toEndOf="@+id/btnUpcomingAppointment"
+        app:layout_constraintStart_toStartOf="@+id/btnUpcomingAppointment"
+        app:layout_constraintTop_toTopOf="@+id/divListAppointmentFragment" />
+
+    <View
+        android:id="@+id/divHistoryAppointmentFragment"
+        android:layout_width="40dp"
+        android:layout_height="3dp"
+        android:background="@drawable/rounded_divider"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/divUpcomingAppointmentFragment"
+        app:layout_constraintEnd_toEndOf="@+id/btnHistoryAppointment"
+        app:layout_constraintStart_toStartOf="@+id/btnHistoryAppointment"
+        app:layout_constraintTop_toTopOf="@+id/divUpcomingAppointmentFragment" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/consFragmentAppointmentFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divListAppointmentFragment">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

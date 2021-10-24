@@ -5,7 +5,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -19,7 +18,7 @@ public class OnBoardingActivity extends AppCompatActivity {
     private ViewPager onboardingViewPager;
     private LinearLayout onboardingLinearLayout;
     private TextView[] mdots;
-    private Button onnoardingBtnBack, onboardingBtnNext;
+    private Button onboardingBtnSkip, onboardingBtnNext, onboardingBtnGetStarted;
 
     private OnBoardingAdapter onboardingAdapter;
 
@@ -37,34 +36,35 @@ public class OnBoardingActivity extends AppCompatActivity {
         setListener();
     }
 
-    private void initView(){
+    private void initView() {
         onboardingViewPager = findViewById(R.id.onboardingViewPager);
         onboardingLinearLayout = findViewById(R.id.onboardingLinearLayout);
 
-        onnoardingBtnBack = findViewById(R.id.onnoardingBtnBack);
+        onboardingBtnSkip = findViewById(R.id.onboardingBtnSkip);
         onboardingBtnNext = findViewById(R.id.onboardingBtnNext);
+        onboardingBtnGetStarted = findViewById(R.id.onboardingBtnGetStarted);
 
         onboardingAdapter = new OnBoardingAdapter(this);
         onboardingViewPager.setAdapter(onboardingAdapter);
 
     }
 
-    public void addDotsIndicator(int position){
+    public void addDotsIndicator(int position) {
         mdots = new TextView[3];
         onboardingLinearLayout.removeAllViews();
 
-        for (int i = 0; i <mdots.length; i++){
+        for (int i = 0; i < mdots.length; i++) {
 
             mdots[i] = new TextView(this);
             mdots[i].setText("\u2022");
             mdots[i].setTextSize(35);
-            mdots[i].setTextColor(getColor(R.color.state_disabled));
+            mdots[i].setTextColor(getColor(R.color.primary_200));
 
             onboardingLinearLayout.addView(mdots[i]);
 
         }
 
-        if(mdots.length > 0 ){
+        if (mdots.length > 0) {
             mdots[position].setTextColor(getColor(R.color.primary_500));
         }
     }
@@ -81,33 +81,14 @@ public class OnBoardingActivity extends AppCompatActivity {
             addDotsIndicator(i);
 
             currentPage = i;
-            if(i==0){
-
-                onnoardingBtnBack.setEnabled(false);
-                onboardingBtnNext.setEnabled(true);
-                onnoardingBtnBack.setVisibility(View.INVISIBLE);
-
-                onboardingBtnNext.setText("Next");
-                onnoardingBtnBack.setText("");
-
-            }else if(i== mdots.length - 1 ){
-
-                onnoardingBtnBack.setEnabled(true);
-                onboardingBtnNext.setEnabled(true);
-                onnoardingBtnBack.setVisibility(View.VISIBLE);
-
-                onboardingBtnNext.setText("Finish");
-                onnoardingBtnBack.setText("Back");
-
-            }else{
-
-                onnoardingBtnBack.setEnabled(true);
-                onboardingBtnNext.setEnabled(true);
-                onnoardingBtnBack.setVisibility(View.VISIBLE);
-
-                onboardingBtnNext.setText("Next");
-                onnoardingBtnBack.setText("Back");
-
+            if (i == mdots.length - 1) {
+                onboardingBtnSkip.setVisibility(View.GONE);
+                onboardingBtnNext.setVisibility(View.GONE);
+                onboardingBtnGetStarted.setVisibility(View.VISIBLE);
+            } else {
+                onboardingBtnSkip.setVisibility(View.VISIBLE);
+                onboardingBtnNext.setVisibility(View.VISIBLE);
+                onboardingBtnGetStarted.setVisibility(View.GONE);
             }
         }
 
@@ -117,25 +98,29 @@ public class OnBoardingActivity extends AppCompatActivity {
         }
     };
 
-    private void setListener(){
-        onboardingBtnNext.setOnClickListener(new View.OnClickListener() {
+    private void setListener() {
+        onboardingBtnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(currentPage!=mdots.length - 1){
-                    onboardingViewPager.setCurrentItem(currentPage + 1);
-                }else{
-                    Intent intent = new Intent(OnBoardingActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-
+                onboardingViewPager.setCurrentItem(mdots.length - 1);
             }
         });
 
-        onnoardingBtnBack.setOnClickListener(new View.OnClickListener() {
+        onboardingBtnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onboardingViewPager.setCurrentItem(currentPage - 1);
+                if (currentPage != mdots.length - 1) {
+                    onboardingViewPager.setCurrentItem(currentPage + 1);
+                }
+            }
+        });
+
+        onboardingBtnGetStarted.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(OnBoardingActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

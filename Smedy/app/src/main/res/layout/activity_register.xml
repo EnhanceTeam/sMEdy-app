@@ -12,11 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="80dp"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="sans-serif-medium"
         android:text="Create a new account"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,10 +23,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/roboto"
-        android:text="@string/lorem_ipsum"
+        android:fontFamily="sans-serif-thin"
+        android:text="@string/register_description"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
         android:textColor="@color/black"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/regTextViewTitle"
         app:layout_constraintTop_toBottomOf="@+id/regTextViewTitle" />
 
@@ -65,7 +64,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:boxBackgroundMode="outline"
         app:boxStrokeColor="@color/blue_500"
         app:errorEnabled="true"
@@ -88,7 +87,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:boxBackgroundMode="outline"
         app:boxStrokeColor="@color/blue_500"
         app:counterEnabled="false"
@@ -114,7 +113,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/register_btn"
+        android:text="@string/register"
         app:layout_constraintEnd_toEndOf="@+id/regTextInputPassword"
         app:layout_constraintStart_toStartOf="@+id/regTextInputPassword"
         app:layout_constraintTop_toBottomOf="@+id/regTextInputPassword" />
@@ -123,28 +122,27 @@
         android:id="@+id/regTextViewDesc2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:fontFamily="@font/roboto"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="64dp"
         android:text="Already have account?"
-        android:textSize="12sp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/regButtonRegister"
-        app:layout_constraintStart_toStartOf="@+id/regButtonRegister" />
+        app:layout_constraintStart_toStartOf="@+id/regButtonRegister"
+        app:layout_constraintTop_toBottomOf="@+id/regButtonRegister"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/regTextViewLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:fontFamily="@font/roboto"
-        android:text="Login"
+        android:text="@string/login"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
         android:textColor="@color/blue_500"
-        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/regTextViewDesc2"
         app:layout_constraintStart_toEndOf="@+id/regTextViewDesc2"
-        app:layout_constraintTop_toTopOf="@+id/regTextViewDesc2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/regTextViewDesc2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

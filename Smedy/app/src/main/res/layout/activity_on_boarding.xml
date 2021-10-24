@@ -8,7 +8,7 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/onboardingViewPager"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/onboardingLinearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,6 +20,7 @@
         android:id="@+id/onboardingLinearLayout"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_marginBottom="96dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,26 +28,39 @@
         app:layout_constraintStart_toStartOf="parent"></LinearLayout>
 
     <Button
-        android:id="@+id/onnoardingBtnBack"
-        android:layout_width="wrap_content"
+        android:id="@+id/onboardingBtnSkip"
+        android:layout_width="124dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
         android:background="@android:color/transparent"
-        android:text="Back"
+        android:text="@string/skip"
         android:textColor="@color/primary_500"
-        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/onboardingViewPager" />
+        app:layout_constraintEnd_toStartOf="@+id/onboardingBtnNext"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/onboardingBtnNext"
-        android:layout_width="wrap_content"
+        android:layout_width="124dp"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:text="Next"
-        android:textColor="@color/primary_500"
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="@+id/onboardingBtnSkip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/onboardingBtnSkip" />
+
+    <Button
+        android:id="@+id/onboardingBtnGetStarted"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/get_started"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/onboardingViewPager" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
