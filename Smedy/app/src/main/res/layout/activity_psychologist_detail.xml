@@ -262,37 +262,37 @@
                 app:layout_constraintTop_toBottomOf="@+id/profileImageViewSignOut" />
 
             <Button
-                android:id="@+id/profileButtonSave"
+                android:id="@+id/BtnWH1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/number"
-                app:layout_constraintEnd_toStartOf="@+id/button2"
+                android:text="@string/working_hour1"
+                app:layout_constraintEnd_toStartOf="@+id/BtnWH2"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/BtnWH2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/number"
-                app:layout_constraintBottom_toBottomOf="@+id/profileButtonSave"
-                app:layout_constraintEnd_toStartOf="@+id/button3"
+                android:text="@string/working_hour2"
+                app:layout_constraintBottom_toBottomOf="@+id/BtnWH1"
+                app:layout_constraintEnd_toStartOf="@+id/BtnWH3"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/profileButtonSave"
-                app:layout_constraintTop_toTopOf="@+id/profileButtonSave" />
+                app:layout_constraintStart_toEndOf="@+id/BtnWH1"
+                app:layout_constraintTop_toTopOf="@+id/BtnWH1" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/BtnWH3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/number"
-                app:layout_constraintBottom_toBottomOf="@+id/button2"
+                android:text="@string/working_hour3"
+                app:layout_constraintBottom_toBottomOf="@+id/BtnWH2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/button2"
-                app:layout_constraintTop_toTopOf="@+id/button2" />
+                app:layout_constraintStart_toEndOf="@+id/BtnWH2"
+                app:layout_constraintTop_toTopOf="@+id/BtnWH2" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -305,10 +305,10 @@
                 app:layout_constraintEnd_toEndOf="@+id/textView5"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/textView5"
-                app:layout_constraintTop_toBottomOf="@+id/profileButtonSave" />
+                app:layout_constraintTop_toBottomOf="@+id/BtnWH1" />
 
             <CalendarView
-                android:id="@+id/calendarView"
+                android:id="@+id/calendarAppointment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -327,7 +327,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/textView6"
                 app:layout_constraintStart_toEndOf="@+id/textView6"
                 app:layout_constraintStart_toStartOf="@+id/textView6"
-                app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+                app:layout_constraintTop_toBottomOf="@+id/calendarAppointment" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

@@ -155,6 +155,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 DocumentReference userReference = fStore.collection("user_collection").document(userID);
                                 Map<String, Object> user_info = new HashMap<>();
                                 user_info.put("username", username);
+                                user_info.put("phone","-");
                                 user_info.put("email", email);
 //                                user_info.put("password", password);
 
