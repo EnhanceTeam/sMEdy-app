@@ -91,6 +91,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onEvent(DocumentSnapshot documentSnapshot, FirebaseFirestoreException error) {
                 profileTextViewName.setText(documentSnapshot.getString("username"));
+                profileTextInputLayoutName.getEditText().setText(documentSnapshot.getString("username"));
                 profileTextInputLayoutPhone.getEditText().setText(documentSnapshot.getString("phone"));
                 profileTextInputLayoutMail.getEditText().setText(documentSnapshot.getString("email"));
             }
