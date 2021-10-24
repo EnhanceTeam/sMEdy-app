@@ -46,7 +46,8 @@ public class MeditationHomeAdapter extends RecyclerView.Adapter<MeditationHomeAd
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, MeditationPlayerActivity.class);
-                intent.putExtra("dataMeditasi", meditation);
+                intent.putExtra("judul", listMeditasi.get(position).getTitle());
+                intent.putExtra("uri", listMeditasi.get(position).getUrl());
                 context.startActivity(intent);
             }
         });

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -25,12 +26,15 @@ import com.example.smedy.model.Music;
 import com.example.smedy.model.Psychologist;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
@@ -50,6 +54,7 @@ public class HomeFragment extends Fragment {
     private ImageView ImgUserHome;
     private TextView homeTextViewName;
     private View view;
+    private TextView txtNamaHomeFragment;
 
     private com.example.smedy.viewmodel.PsychologistViewModel psychologistViewModel;
     private PsikologHomeAdapter psikologHomeAdapter;
@@ -59,6 +64,9 @@ public class HomeFragment extends Fragment {
 
     private com.example.smedy.viewmodel.MeditationViewModel meditationViewModel;
     private MeditationHomeAdapter meditationHomeAdapter;
+
+    private FirebaseFirestore db;
+    private FirebaseAuth auth;
 
     public HomeFragment() {
     }
@@ -78,27 +86,30 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        homeTextViewName = view.findViewById(R.id.homeTextViewName);
+        txtNamaHomeFragment = view.findViewById(R.id.txtNamaHomeFragment);
+        db = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
+      
         mAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
 
         user = mAuth.getCurrentUser();
         userID = user.getUid();
+      
+         db.collection("user_collection").document(userID).get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        txtNamaHomeFragment.setText(documentSnapshot.getString("username"));
+                    }
+                });
 
         StorageReference profilePictureReference = storageReference.child("user_collection/" + userID + "/profile_picture.png");
         profilePictureReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 Picasso.get().load(uri).into(ImgUserHome);
-            }
-        });
-
-        DocumentReference userReference = fStore.collection("user_collection").document(userID);
-        userReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(DocumentSnapshot documentSnapshot, FirebaseFirestoreException error) {
-                homeTextViewName.setText(documentSnapshot.getString("username"));
             }
         });
 
