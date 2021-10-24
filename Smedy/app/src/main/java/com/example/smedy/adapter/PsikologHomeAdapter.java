@@ -51,14 +51,8 @@ public class PsikologHomeAdapter extends RecyclerView.Adapter<PsikologHomeAdapte
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, PsychologistDetailActivity.class);
-                intent.putExtra("nama", psychologist.getNama());
-                intent.putExtra("tahun", psychologist.getTahun());
-                intent.putExtra("foto", psychologist.getFoto());
-                intent.putExtra("lokasi", psychologist.getLokasi());
-                intent.putExtra("lulusan", psychologist.getLulusan());
-                intent.putExtra("biaya", psychologist.getBiaya());
-                intent.putExtra("rating", psychologist.getRating());
-                intent.putExtra("specialist", psychologist.getSpecialist());
+                intent.putExtra("psychologist", psychologist);
+                
                 context.startActivity(intent);
             }
         });
