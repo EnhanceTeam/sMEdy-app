@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.smedy.R;
 import com.example.smedy.model.Appointment;
 
@@ -41,10 +43,10 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
         Appointment appointment = appointmentList.get(position);
 
         String date = appointment.getJam() + ", " + appointment.getTanggal();
-
         holder.txtNameAppointmentCard.setText(appointment.getNamaPsikolog());
         holder.txtSpecialistAppointmentCard.setText(appointment.getSpesialis());
         holder.txtDateAppointmentCard.setText(date);
+        Glide.with(context).load(appointment.getFoto()).diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.ImgFotoAppointment);
     }
 
     @Override
@@ -55,6 +57,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
     public class CardViewViewHolder extends RecyclerView.ViewHolder {
         TextView txtNameAppointmentCard, txtSpecialistAppointmentCard, txtDateAppointmentCard, txtStatusIndicatorAppointmentCard, txtStatusAppointmentCard, txtDescriptionAppointmentCard;
 //        CardView cvAppointment;
+        ImageView ImgFotoAppointment;
 
         public CardViewViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -62,6 +65,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
             txtNameAppointmentCard = itemView.findViewById(R.id.txtNameAppointmentCard);
             txtSpecialistAppointmentCard = itemView.findViewById(R.id.txtSpecialistAppointmentCard);
             txtDateAppointmentCard = itemView.findViewById(R.id.txtDateAppointmentCard);
+            ImgFotoAppointment = itemView.findViewById(R.id.ImgFotoAppointment);
 //            txtStatusIndicatorAppointmentCard = itemView.findViewById(R.id.txtStatusIndicatorAppointmentCard);
 //            txtStatusAppointmentCard = itemView.findViewById(R.id.txtStatusAppointmentCard);
 //            txtDescriptionAppointmentCard = itemView.findViewById(R.id.txtDescriptionAppointmentCard);
