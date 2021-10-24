@@ -266,6 +266,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:background="@drawable/button_bg"
                 android:text="@string/working_hour1"
                 app:layout_constraintEnd_toStartOf="@+id/BtnWH2"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -276,6 +277,7 @@
                 android:id="@+id/BtnWH2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/button_bg"
                 android:text="@string/working_hour2"
                 app:layout_constraintBottom_toBottomOf="@+id/BtnWH1"
                 app:layout_constraintEnd_toStartOf="@+id/BtnWH3"
@@ -287,6 +289,7 @@
                 android:id="@+id/BtnWH3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/button_bg"
                 android:text="@string/working_hour3"
                 app:layout_constraintBottom_toBottomOf="@+id/BtnWH2"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -308,7 +311,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/BtnWH1" />
 
             <CalendarView
-                android:id="@+id/calendarView"
+                android:id="@+id/calendarAppointment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -327,7 +330,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/textView6"
                 app:layout_constraintStart_toEndOf="@+id/textView6"
                 app:layout_constraintStart_toStartOf="@+id/textView6"
-                app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+                app:layout_constraintTop_toBottomOf="@+id/calendarAppointment" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
