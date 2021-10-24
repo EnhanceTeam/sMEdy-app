@@ -27,7 +27,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/txtNamaHomeFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nama"
@@ -44,7 +44,7 @@
                 android:layout_marginEnd="24dp"
                 app:cardBackgroundColor="@color/purple_200"
                 app:cardCornerRadius="50dp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView11"
+                app:layout_constraintBottom_toBottomOf="@+id/txtNamaHomeFragment"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView">
 
@@ -65,8 +65,8 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/textView11"
-                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                app:layout_constraintStart_toStartOf="@+id/txtNamaHomeFragment"
+                app:layout_constraintTop_toBottomOf="@+id/txtNamaHomeFragment" />
 
             <TextView
                 android:id="@+id/TxtRatingCvPsikiater"
