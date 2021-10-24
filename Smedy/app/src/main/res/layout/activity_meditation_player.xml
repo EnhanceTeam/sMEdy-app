@@ -32,19 +32,18 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imgBtnBackMeditationPlayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="?android:attr/selectableItemBackground"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_new_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-         />
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
 
     <SeekBar
-        android:id="@+id/seekBar3"
+        android:id="@+id/seekBarMeditationPlayer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -63,21 +62,21 @@
         android:id="@+id/txtStartTimeMeditationPlayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="00.00"
+        android:text="00:00"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/seekBar3"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar3" />
+        app:layout_constraintStart_toStartOf="@+id/seekBarMeditationPlayer"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarMeditationPlayer" />
 
     <TextView
-        android:id="@+id/txtTimeEndMeditationPlayer"
+        android:id="@+id/txtEndTimeMeditationPlayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="10.00"
+        android:text="00:00"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/seekBar3"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar3" />
+        app:layout_constraintEnd_toEndOf="@+id/seekBarMeditationPlayer"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarMeditationPlayer" />
 
     <TextView
         android:id="@+id/textView11"
@@ -88,9 +87,9 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toTopOf="@+id/imageButton" />
+        app:layout_constraintBottom_toBottomOf="@+id/imgBtnBackMeditationPlayer"
+        app:layout_constraintStart_toEndOf="@+id/imgBtnBackMeditationPlayer"
+        app:layout_constraintTop_toTopOf="@+id/imgBtnBackMeditationPlayer" />
 
     <ImageButton
         android:id="@+id/imgBtnPlayPauseMeditationPlayer"
@@ -98,10 +97,11 @@
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/circle_corner"
-        android:foreground="@drawable/ic_baseline_play_arrow_24"
+        android:clickable="true"
+        android:src="@drawable/ic_baseline_play_arrow_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar3" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBarMeditationPlayer" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -110,6 +110,8 @@
         android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBtnBackMeditationPlayer"
+        app:srcCompat="@drawable/logo_smedy_lotus_white" />
         app:layout_constraintTop_toBottomOf="@+id/imageButton"
         app:srcCompat="@drawable/logo_smedy_lotus_white" />
 
