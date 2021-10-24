@@ -1,5 +1,6 @@
 package com.example.smedy.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.example.smedy.R;
 import com.example.smedy.adapter.MeditationAdapter;
@@ -23,10 +25,11 @@ import java.util.ArrayList;
  * Use the {@link MeditationFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MeditationFragment extends Fragment {
+public class MeditationFragment extends Fragment implements MeditationAdapter.MeditationClickListener {
     private RecyclerView rvMeditationFragment;
     private MeditationAdapter adapter;
     private MeditationViewModel meditationViewModel;
+    private ArrayList<Meditation> listMeditasi;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -87,19 +90,28 @@ public class MeditationFragment extends Fragment {
 
     private Observer<ArrayList<Meditation>> showGetMeditationResult = new Observer<ArrayList<Meditation>>() {
         @Override
-        public void onChanged(ArrayList<Meditation> listMeditasi) {
-            setAdapter(listMeditasi);
+        public void onChanged(ArrayList<Meditation> meditations) {
+            setAdapter(meditations);
+            listMeditasi = meditations;
         }
     };
 
     private void initVar(View view){
         rvMeditationFragment = view.findViewById(R.id.rvMeditationFragment);
         meditationViewModel = new ViewModelProvider(getActivity()).get(MeditationViewModel.class);
+        listMeditasi = new ArrayList<>();
     }
 
     private void setAdapter(ArrayList<Meditation> listMeditasi){
-        adapter = new MeditationAdapter(listMeditasi, getActivity());
+        adapter = new MeditationAdapter(listMeditasi, getActivity(), this);
         rvMeditationFragment.setAdapter(adapter);
     }
 
+    @Override
+    public void onMeditationViewholderClick(int position) {
+        Intent intent = new Intent(getActivity(), MeditationPlayerActivity.class);
+        intent.putExtra("judul", listMeditasi.get(position).getTitle());
+        intent.putExtra("uri", listMeditasi.get(position).getUrl());
+        startActivity(intent);
+    }
 }

@@ -1,8 +1,6 @@
 package com.example.smedy.adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,17 +12,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smedy.R;
 import com.example.smedy.model.Meditation;
-import com.example.smedy.view.MeditationPlayerActivity;
 
 import java.util.ArrayList;
 
 public class MeditationAdapter extends RecyclerView.Adapter<MeditationAdapter.MeditationViewHolder> {
     private ArrayList<Meditation> listMeditasi;
     private Context context;
+    private MeditationClickListener meditationClickListener;
 
-    public MeditationAdapter(ArrayList<Meditation> listMeditasi, Context context) {
+    public MeditationAdapter(ArrayList<Meditation> listMeditasi, Context context, MeditationClickListener meditationClickListener) {
         this.listMeditasi = listMeditasi;
         this.context = context;
+        this.meditationClickListener = meditationClickListener;
     }
 
     @NonNull
@@ -32,7 +31,7 @@ public class MeditationAdapter extends RecyclerView.Adapter<MeditationAdapter.Me
     public MeditationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.meditation_fragment_viewholder, parent, false);
-        return new MeditationViewHolder(view);
+        return new MeditationViewHolder(view, meditationClickListener);
     }
 
     @Override
@@ -42,15 +41,6 @@ public class MeditationAdapter extends RecyclerView.Adapter<MeditationAdapter.Me
         holder.txtTitleMeditationFragmentViewholder.setText(meditation.getTitle());
         holder.txtDescMeditationFragmentViewholder.setText(meditation.getDescription());
         holder.txtDurationMeditationFragmentViewholder.setText(meditation.getDuration());
-
-        holder.cvMeditationFragmentViewholder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, MeditationPlayerActivity.class);
-                intent.putExtra("dataMeditasi", meditation);
-                context.startActivity(intent);
-            }
-        });
     }
 
     @Override
@@ -58,17 +48,32 @@ public class MeditationAdapter extends RecyclerView.Adapter<MeditationAdapter.Me
         return listMeditasi.size();
     }
 
-    public class MeditationViewHolder extends RecyclerView.ViewHolder {
+    public class MeditationViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView txtTitleMeditationFragmentViewholder, txtDescMeditationFragmentViewholder, txtDurationMeditationFragmentViewholder;
         CardView cvMeditationFragmentViewholder;
+        MeditationClickListener meditationClickListener;
 
-        public MeditationViewHolder(@NonNull View itemView) {
+        public MeditationViewHolder(@NonNull View itemView, MeditationClickListener meditationClickListener) {
             super(itemView);
+
+            this.meditationClickListener = meditationClickListener;
 
             txtTitleMeditationFragmentViewholder = itemView.findViewById(R.id.txtTitleMeditationFragmentViewholder);
             txtDescMeditationFragmentViewholder = itemView.findViewById(R.id.txtDescMeditationFragmentViewholder);
             txtDurationMeditationFragmentViewholder = itemView.findViewById(R.id.txtDurationMeditationFragmentViewholder);
             cvMeditationFragmentViewholder = itemView.findViewById(R.id.cvMeditationFragmentViewholder);
+
+            itemView.setOnClickListener(this);
         }
+
+
+        @Override
+        public void onClick(View view) {
+            meditationClickListener.onMeditationViewholderClick(getAdapterPosition());
+        }
+    }
+
+    public interface MeditationClickListener{
+        public void onMeditationViewholderClick(int position);
     }
 }
