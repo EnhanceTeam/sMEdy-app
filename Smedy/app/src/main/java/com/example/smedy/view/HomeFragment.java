@@ -1,6 +1,7 @@
 package com.example.smedy.view;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.smedy.R;
 import com.example.smedy.adapter.MeditationHomeAdapter;
@@ -21,13 +23,32 @@ import com.example.smedy.adapter.PsikologHomeAdapter;
 import com.example.smedy.model.Meditation;
 import com.example.smedy.model.Music;
 import com.example.smedy.model.Psychologist;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.concurrent.Executor;
 
 public class HomeFragment extends Fragment {
 
+    FirebaseAuth mAuth;
+    FirebaseUser user;
+    FirebaseFirestore fStore;
+    String userID;
+    StorageReference storageReference;
+
     private RecyclerView RVPsychologistHome, RVMusicHome, RVMeditationHome;
     private ImageView ImgUserHome;
+    private TextView homeTextViewName;
     private View view;
 
     private com.example.smedy.viewmodel.PsychologistViewModel psychologistViewModel;
@@ -54,6 +75,30 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), ProfileActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        homeTextViewName = view.findViewById(R.id.homeTextViewName);
+        mAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        storageReference = FirebaseStorage.getInstance().getReference();
+
+        user = mAuth.getCurrentUser();
+        userID = user.getUid();
+
+        StorageReference profilePictureReference = storageReference.child("user_collection/" + userID + "/profile_picture.png");
+        profilePictureReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(ImgUserHome);
+            }
+        });
+
+        DocumentReference userReference = fStore.collection("user_collection").document(userID);
+        userReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(DocumentSnapshot documentSnapshot, FirebaseFirestoreException error) {
+                homeTextViewName.setText(documentSnapshot.getString("username"));
             }
         });
 
