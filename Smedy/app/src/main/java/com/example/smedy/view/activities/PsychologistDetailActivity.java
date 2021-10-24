@@ -28,9 +28,9 @@ public class PsychologistDetailActivity extends AppCompatActivity {
     private Toolbar toolbarPsychologistActivity;
     private TextView txtNamePsychologistActivity, txtSpecialistPsychologistActivity, txtEducationPsychologistActivity, txtExperiencePsychologistActivity, txtLocationPsychologistActivity, txtRatingPsychologistActivity, txtPhonePsychologistActivity, txtEmailPsychologistActivity;
     private ImageView imgProfilePsychologistActivity;
-    private Button btnMakeAppointmentPsychologistActivity;
+    private Button btnMakeAppointmentPsychologistActivity, BtnWH1, BtnWH2, BtnWH3;
 
-    private String nama, tahun, lulusan, lokasi, foto;
+    private String nama, tahun, lulusan, lokasi, foto, jam;
 
     @Override
     public void onBackPressed() {
@@ -54,6 +54,54 @@ public class PsychologistDetailActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        BtnWH1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BtnWH1.setTextColor(getColor(R.color.white));
+                BtnWH1.setBackgroundColor(getColor(R.color.primary_500));
+
+                BtnWH2.setTextColor(getColor(R.color.dark_grey));
+                BtnWH2.setBackgroundColor(getColor(R.color.white_smoke));
+
+                BtnWH3.setTextColor(getColor(R.color.dark_grey));
+                BtnWH3.setBackgroundColor(getColor(R.color.white_smoke));
+
+                jam = BtnWH1.getText().toString();
+            }
+        });
+
+        BtnWH2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BtnWH1.setTextColor(getColor(R.color.dark_grey));
+                BtnWH1.setBackgroundColor(getColor(R.color.white_smoke));
+
+                BtnWH2.setTextColor(getColor(R.color.white));
+                BtnWH2.setBackgroundColor(getColor(R.color.primary_500));
+
+                BtnWH3.setTextColor(getColor(R.color.dark_grey));
+                BtnWH3.setBackgroundColor(getColor(R.color.white_smoke));
+
+                jam = BtnWH2.getText().toString();
+            }
+        });
+
+        BtnWH3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BtnWH1.setTextColor(getColor(R.color.dark_grey));
+                BtnWH1.setBackgroundColor(getColor(R.color.white_smoke));
+
+                BtnWH2.setTextColor(getColor(R.color.dark_grey));
+                BtnWH2.setBackgroundColor(getColor(R.color.white_smoke));
+
+                BtnWH3.setTextColor(getColor(R.color.white));
+                BtnWH3.setBackgroundColor(getColor(R.color.primary_500));
+
+                jam = BtnWH3.getText().toString();
+            }
+        });
     }
 
     private void initialize() {
@@ -70,6 +118,9 @@ public class PsychologistDetailActivity extends AppCompatActivity {
         txtRatingPsychologistActivity = findViewById(R.id.txtRatingPsychologistActivity);
         txtPhonePsychologistActivity = findViewById(R.id.txtPhonePsychologistActivity);
         txtEmailPsychologistActivity = findViewById(R.id.txtEmailPsychologistActivity);
+        BtnWH1 = findViewById(R.id.BtnWH1);
+        BtnWH2 = findViewById(R.id.BtnWH2);
+        BtnWH3 = findViewById(R.id.BtnWH3);
         btnMakeAppointmentPsychologistActivity = findViewById(R.id.btnMakeAppointmentPsychologistActivity);
 
         setSupportActionBar(toolbarPsychologistActivity);
@@ -85,6 +136,17 @@ public class PsychologistDetailActivity extends AppCompatActivity {
         txtRatingPsychologistActivity.setText(psychologist.getRating());
         txtPhonePsychologistActivity.setText(psychologist.getNoTelp());
         txtEmailPsychologistActivity.setText(psychologist.getEmail());
+
+        BtnWH1.setTextColor(getColor(R.color.white));
+        BtnWH1.setBackgroundColor(getColor(R.color.primary_500));
+
+        BtnWH2.setTextColor(getColor(R.color.dark_grey));
+        BtnWH2.setBackgroundColor(getColor(R.color.white_smoke));
+
+        BtnWH3.setTextColor(getColor(R.color.dark_grey));
+        BtnWH3.setBackgroundColor(getColor(R.color.white_smoke));
+
+        jam = BtnWH1.getText().toString();
     }
 
     @Override
