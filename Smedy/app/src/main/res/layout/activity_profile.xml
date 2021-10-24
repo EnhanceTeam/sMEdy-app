@@ -74,10 +74,16 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/profileTextInputLayoutName"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/blue_500"
+        app:counterEnabled="false"
+        app:counterTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/imageView10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView10"
@@ -118,9 +124,15 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/profileTextInputLayoutPhone"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/blue_500"
+        app:counterEnabled="false"
+        app:counterTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/imageView11"
         app:layout_constraintEnd_toEndOf="@+id/profileTextInputLayoutName"
         app:layout_constraintStart_toEndOf="@+id/imageView11"
@@ -134,9 +146,15 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/profileTextInputLayoutMail"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/blue_500"
+        app:counterEnabled="false"
+        app:counterTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/imageView12"
         app:layout_constraintEnd_toEndOf="@+id/profileTextInputLayoutPhone"
         app:layout_constraintStart_toEndOf="@+id/imageView12"
@@ -170,4 +188,12 @@
         app:layout_constraintStart_toEndOf="@+id/profileTextViewName"
         app:layout_constraintTop_toTopOf="@+id/profileTextViewName"
         app:srcCompat="@drawable/exit" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/cardView3"
+        app:layout_constraintTop_toTopOf="@+id/cardView3"
+        app:srcCompat="@drawable/edit" />
 </androidx.constraintlayout.widget.ConstraintLayout>
