@@ -79,6 +79,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
         musicImageViewBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pause();
                 finish();
             }
         });
