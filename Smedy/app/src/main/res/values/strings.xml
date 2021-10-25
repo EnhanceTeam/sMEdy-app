@@ -54,4 +54,6 @@
     <string name="working_hour1">08.00</string>
     <string name="working_hour2">10.00</string>
     <string name="working_hour3">13.00</string>
+    <string name="musik">Musik</string>
+    <string name="meditasi">Meditasi</string>
 </resources>

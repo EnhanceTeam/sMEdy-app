@@ -1,12 +1,15 @@
 package com.example.smedy.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
@@ -15,7 +18,8 @@ import android.widget.TextView;
 import com.example.smedy.R;
 
 public class MeditationPlayerActivity extends AppCompatActivity {
-    private ImageButton imgBtnBackMeditationPlayer, imgBtnPlayPauseMeditationPlayer;
+    private Toolbar toolbarMeditationPlayer;
+    private ImageButton imgBtnPlayPauseMeditationPlayer;
     private TextView txtTitleMeditationPlayer, txtStartTimeMeditationPlayer, txtEndTimeMeditationPlayer;
     private SeekBar seekBarMeditationPlayer;
     private MediaPlayer mediaPlayer;
@@ -26,7 +30,7 @@ public class MeditationPlayerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meditation_player);
-        getWindow().setStatusBarColor(getColor(R.color.blue_800));
+        getWindow().setStatusBarColor(getColor(R.color.soft_blue_100));
 
         initVar();
         getIntentData();
@@ -35,13 +39,17 @@ public class MeditationPlayerActivity extends AppCompatActivity {
         setListener();
     }
 
-    private void initVar(){
-        imgBtnBackMeditationPlayer = findViewById(R.id.imgBtnBackMeditationPlayer);
+    private void initVar() {
+        toolbarMeditationPlayer = findViewById(R.id.toolbarMeditationPlayer);
         imgBtnPlayPauseMeditationPlayer = findViewById(R.id.imgBtnPlayPauseMeditationPlayer);
         txtTitleMeditationPlayer = findViewById(R.id.txtTitleMeditationPlayer);
         txtStartTimeMeditationPlayer = findViewById(R.id.txtStartTimeMeditationPlayer);
         txtEndTimeMeditationPlayer = findViewById(R.id.txtEndTimeMeditationPlayer);
         seekBarMeditationPlayer = findViewById(R.id.seekBarMeditationPlayer);
+
+        setSupportActionBar(toolbarMeditationPlayer);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
     }
 
     @Override
@@ -51,19 +59,7 @@ public class MeditationPlayerActivity extends AppCompatActivity {
         mediaPlayer.pause();
     }
 
-    private void setListener(){
-        imgBtnBackMeditationPlayer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mediaPlayer.pause();
-
-                Intent intent = new Intent(MeditationPlayerActivity. this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
-            }
-        });
-
+    private void setListener() {
         imgBtnPlayPauseMeditationPlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,7 +78,7 @@ public class MeditationPlayerActivity extends AppCompatActivity {
         seekBarMeditationPlayer.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                if(mediaPlayer != null && b){
+                if (mediaPlayer != null && b) {
                     mediaPlayer.seekTo(i * 1000);
                 }
             }
@@ -119,11 +115,11 @@ public class MeditationPlayerActivity extends AppCompatActivity {
 
     }
 
-    private void setThread(){
+    private void setThread() {
         MeditationPlayerActivity.this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if(mediaPlayer != null){
+                if (mediaPlayer != null) {
                     int currentPosition = mediaPlayer.getCurrentPosition() / 1000;
                     seekBarMeditationPlayer.setProgress(currentPosition);
                     txtStartTimeMeditationPlayer.setText(formattedTime(currentPosition));
@@ -140,20 +136,31 @@ public class MeditationPlayerActivity extends AppCompatActivity {
         String resultSec = "";
         String resultMin = "";
 
-        if(second < 10){
+        if (second < 10) {
             resultSec = "0" + second;
-        }else{
+        } else {
             resultSec = String.valueOf(second);
         }
 
-        if(minute < 10){
+        if (minute < 10) {
             resultMin = "0" + minute;
-        }else{
+        } else {
             resultMin = String.valueOf(minute);
         }
 
         result += resultMin + ":" + resultSec;
 
         return result;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == android.R.id.home) {
+            mediaPlayer.pause();
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

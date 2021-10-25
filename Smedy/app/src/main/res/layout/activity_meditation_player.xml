@@ -8,12 +8,26 @@
     android:backgroundTint="#ABD7EB"
     tools:context=".view.MeditationPlayerActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMeditationPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ToolbarSoftBlue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/meditasi" />
+
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
+        android:layout_width="411dp"
         android:layout_height="102dp"
+        android:layout_marginBottom="-1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_bg_music_meditation_player" />
 
@@ -30,17 +44,6 @@
         app:layout_constraintEnd_toEndOf="@+id/imageView5"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
-
-    <ImageButton
-        android:id="@+id/imgBtnBackMeditationPlayer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="?android:attr/selectableItemBackground"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
 
     <SeekBar
         android:id="@+id/seekBarMeditationPlayer"
@@ -78,19 +81,6 @@
         app:layout_constraintEnd_toEndOf="@+id/seekBarMeditationPlayer"
         app:layout_constraintTop_toBottomOf="@+id/seekBarMeditationPlayer" />
 
-    <TextView
-        android:id="@+id/txtNamaHomeFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="Meditasi"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imgBtnBackMeditationPlayer"
-        app:layout_constraintStart_toEndOf="@+id/imgBtnBackMeditationPlayer"
-        app:layout_constraintTop_toTopOf="@+id/imgBtnBackMeditationPlayer" />
-
     <ImageButton
         android:id="@+id/imgBtnPlayPauseMeditationPlayer"
         android:layout_width="50dp"
@@ -107,10 +97,10 @@
         android:id="@+id/imageView5"
         android:layout_width="130dp"
         android:layout_height="130dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgBtnBackMeditationPlayer"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarMeditationPlayer"
         app:srcCompat="@drawable/logo_smedy_lotus_white" />
         app:layout_constraintTop_toBottomOf="@+id/imageButton"
         app:srcCompat="@drawable/logo_smedy_lotus_white" />

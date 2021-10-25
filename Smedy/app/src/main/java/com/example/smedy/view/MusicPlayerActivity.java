@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,7 +12,9 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -23,7 +26,8 @@ import com.example.smedy.viewmodel.MusicViewModel;
 import java.util.ArrayList;
 
 public class MusicPlayerActivity extends AppCompatActivity {
-    private ImageView musicImageViewBack, musicPlayerImageView, musicPlayerPlayPauseImageView;
+    private Toolbar toolbarMusicPlayer;
+    private ImageView musicPlayerImageView, musicPlayerPlayPauseImageView;
     private SeekBar musicPlayerSeekBar;
     private TextView musicPlayerCurrentTimeTextView, musicPlayerTotalTimeTextView, musicPlayerTitleTextView;
     private MediaPlayer mediaPlayer;
@@ -57,6 +61,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music_player);
+        getWindow().setStatusBarColor(getColor(R.color.soft_blue_100));
 
         initialize();
         setListener();
@@ -76,14 +81,6 @@ public class MusicPlayerActivity extends AppCompatActivity {
     }
 
     private void setListener() {
-        musicImageViewBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pause();
-                finish();
-            }
-        });
-
         musicPlayerPlayPauseImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -157,13 +154,17 @@ public class MusicPlayerActivity extends AppCompatActivity {
         musicFormat = intent.getStringExtra("music");
         tokenFormat = intent.getStringExtra("token");
 
-        musicImageViewBack = findViewById(R.id.musicImageViewBack);
+        toolbarMusicPlayer = findViewById(R.id.toolbarMusicPlayer);
         musicPlayerImageView = findViewById(R.id.musicPlayerImageView);
         musicPlayerPlayPauseImageView = findViewById(R.id.musicPlayerPlayPauseImageView);
         musicPlayerSeekBar = findViewById(R.id.musicPlayerSeekBar);
         musicPlayerCurrentTimeTextView = findViewById(R.id.musicPlayerCurrentTimeTextView);
         musicPlayerTotalTimeTextView = findViewById(R.id.musicPlayerTotalTimeTextView);
         musicPlayerTitleTextView = findViewById(R.id.musicPlayerTitleTextView);
+
+        setSupportActionBar(toolbarMusicPlayer);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         viewModel = new ViewModelProvider(MusicPlayerActivity.this).get(MusicViewModel.class);
         viewModel.setResultGetMusic();
@@ -203,6 +204,17 @@ public class MusicPlayerActivity extends AppCompatActivity {
     public void onBackPressed() {
         pause();
         finish();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == android.R.id.home) {
+            pause();
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }
