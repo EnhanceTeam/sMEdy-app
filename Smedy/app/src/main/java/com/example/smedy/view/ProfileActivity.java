@@ -125,7 +125,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                 Toast.makeText(ProfileActivity.this, "Sign Out Success", Toast.LENGTH_SHORT).show();
 
-                intent = new Intent(getBaseContext(), HomeFragment.class);
+                intent = new Intent(getBaseContext(), LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
