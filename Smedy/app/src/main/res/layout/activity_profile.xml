@@ -83,6 +83,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileTextViewName" />
 
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:srcCompat="@drawable/ic_baseline_profile_24" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/profileTextInputLayoutName"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -91,10 +100,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
+        android:theme="@style/TextInputLayoutColor"
         app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/blue_500"
-        app:counterEnabled="false"
-        app:counterTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/imageView10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView10"
@@ -107,15 +114,6 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:srcCompat="@drawable/ic_baseline_profile_24" />
-
-    <ImageView
         android:id="@+id/imageView11"
         android:layout_width="32dp"
         android:layout_height="32dp"
@@ -123,6 +121,27 @@
         app:layout_constraintStart_toStartOf="@+id/imageView10"
         app:layout_constraintTop_toBottomOf="@+id/imageView10"
         app:srcCompat="@drawable/phone" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/profileTextInputLayoutPhone"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:theme="@style/TextInputLayoutColor"
+        app:boxBackgroundMode="outline"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+        app:layout_constraintEnd_toEndOf="@+id/profileTextInputLayoutName"
+        app:layout_constraintStart_toEndOf="@+id/imageView11"
+        app:layout_constraintTop_toTopOf="@+id/imageView11">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone"
+            android:inputType="phone" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
         android:id="@+id/imageView12"
@@ -134,38 +153,14 @@
         app:srcCompat="@drawable/email" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/profileTextInputLayoutPhone"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/blue_500"
-        app:counterEnabled="false"
-        app:counterTextColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView11"
-        app:layout_constraintEnd_toEndOf="@+id/profileTextInputLayoutName"
-        app:layout_constraintStart_toEndOf="@+id/imageView11"
-        app:layout_constraintTop_toTopOf="@+id/imageView11">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Phone" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/profileTextInputLayoutMail"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:theme="@style/TextInputLayoutColor"
         app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/blue_500"
-        app:counterEnabled="false"
-        app:counterTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/imageView12"
         app:layout_constraintEnd_toEndOf="@+id/profileTextInputLayoutPhone"
         app:layout_constraintStart_toEndOf="@+id/imageView12"
@@ -174,7 +169,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Mail" />
+            android:hint="@string/email"
+            android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

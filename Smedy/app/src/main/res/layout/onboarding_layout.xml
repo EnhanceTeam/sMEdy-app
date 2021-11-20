@@ -37,7 +37,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-thin"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
         android:textColor="@color/black"

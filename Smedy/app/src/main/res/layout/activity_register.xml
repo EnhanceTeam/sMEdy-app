@@ -13,8 +13,9 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="80dp"
         android:fontFamily="sans-serif-medium"
-        android:text="Create a new account"
+        android:text="Create an Account"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,11 +24,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-thin"
         android:text="@string/register_description"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
         android:textColor="@color/black"
-        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/regTextViewTitle"
         app:layout_constraintTop_toBottomOf="@+id/regTextViewTitle" />
 
@@ -39,8 +38,8 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="40dp"
+        android:theme="@style/TextInputLayoutColor"
         app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/blue_500"
         app:counterEnabled="true"
         app:counterMaxLength="20"
         app:counterTextColor="@color/black"
@@ -54,7 +53,6 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
             android:hint="Username"
-            android:inputType="textAutoComplete"
             android:textColor="@color/black"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -65,8 +63,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:theme="@style/TextInputLayoutColor"
         app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/blue_500"
         app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="@+id/regTextInputUsername"
         app:layout_constraintStart_toStartOf="@+id/regTextInputUsername"
@@ -77,7 +75,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
             android:hint="Email"
-            android:inputType="textAutoComplete"
+            android:inputType="textEmailAddress"
             android:textColor="@color/black"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -88,10 +86,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:theme="@style/TextInputLayoutColor"
         app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/blue_500"
-        app:counterEnabled="false"
-        app:counterTextColor="@color/black"
         app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="@+id/regTextInputEmail"
         app:layout_constraintStart_toStartOf="@+id/regTextInputEmail"
