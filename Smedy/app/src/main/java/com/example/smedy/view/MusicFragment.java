@@ -47,7 +47,7 @@ public class MusicFragment extends Fragment {
         @Override
         public void onChanged(ArrayList<Music> music) {
             musicFragmentRV.setLayoutManager(new LinearLayoutManager(getActivity()));
-            MusicAdapter adapter = new MusicAdapter(getActivity());
+            MusicAdapter adapter = new MusicAdapter(getActivity(), getActivity());
             adapter.setMusicList(music);
             musicFragmentRV.setAdapter(adapter);
         }

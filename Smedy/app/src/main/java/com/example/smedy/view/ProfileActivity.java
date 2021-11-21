@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.smedy.R;
+import com.example.smedy.helper.LoadingDialog;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
@@ -52,6 +53,8 @@ public class ProfileActivity extends AppCompatActivity {
     private Toolbar toolbarProfile;
     private Intent intent;
 
+    private LoadingDialog loadingDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,9 +65,11 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void setListener() {
-        toolbarProfile.setOnClickListener(new View.OnClickListener() {
+        toolbarProfile.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+                startActivity(intent);
                 finish();
             }
         });
@@ -119,14 +124,14 @@ public class ProfileActivity extends AppCompatActivity {
         profileImageViewSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                FirebaseAuth.getInstance().signOut();
-                FirebaseFirestore.getInstance().terminate();
+                mAuth.signOut();
+//                fStore.terminate();
+//                fStore.clearPersistence();
 
                 Toast.makeText(ProfileActivity.this, "Sign Out Success", Toast.LENGTH_SHORT).show();
 
-                intent = new Intent(getBaseContext(), LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent = new Intent(ProfileActivity.this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
         });
@@ -180,6 +185,9 @@ public class ProfileActivity extends AppCompatActivity {
         profileButtonSave = findViewById(R.id.profileButtonSave);
         profileImageViewEditImage = findViewById(R.id.profileImageViewEditImage);
 
+        loadingDialog = new LoadingDialog(ProfileActivity.this);
+        loadingDialog.startLoading();
+
         mAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -196,13 +204,15 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         DocumentReference userReference = fStore.collection("user_collection").document(userID);
-        userReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+        userReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
-            public void onEvent(DocumentSnapshot documentSnapshot, FirebaseFirestoreException error) {
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
                 profileTextViewName.setText(documentSnapshot.getString("username"));
                 profileTextInputLayoutName.getEditText().setText(documentSnapshot.getString("username"));
                 profileTextInputLayoutPhone.getEditText().setText(documentSnapshot.getString("phone"));
                 profileTextInputLayoutMail.getEditText().setText(documentSnapshot.getString("email"));
+
+                loadingDialog.stopLoading();
             }
         });
 

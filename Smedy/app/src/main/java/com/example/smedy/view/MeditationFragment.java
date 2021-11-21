@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import android.widget.ProgressBar;
 
 import com.example.smedy.R;
 import com.example.smedy.adapter.MeditationAdapter;
+import com.example.smedy.helper.LoadingDialog;
 import com.example.smedy.model.Meditation;
 import com.example.smedy.viewmodel.MeditationViewModel;
 
@@ -30,6 +32,8 @@ public class MeditationFragment extends Fragment implements MeditationAdapter.Me
     private MeditationAdapter adapter;
     private MeditationViewModel meditationViewModel;
     private ArrayList<Meditation> listMeditasi;
+
+    private LoadingDialog loadingDialog;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -69,6 +73,9 @@ public class MeditationFragment extends Fragment implements MeditationAdapter.Me
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        loadingDialog = new LoadingDialog(getActivity());
+        loadingDialog.startLoading();
     }
 
     @Override
@@ -93,6 +100,7 @@ public class MeditationFragment extends Fragment implements MeditationAdapter.Me
         public void onChanged(ArrayList<Meditation> meditations) {
             setAdapter(meditations);
             listMeditasi = meditations;
+            loadingDialog.stopLoading();
         }
     };
 
@@ -109,9 +117,19 @@ public class MeditationFragment extends Fragment implements MeditationAdapter.Me
 
     @Override
     public void onMeditationViewholderClick(int position) {
+        loadingDialog.startLoading();
+
         Intent intent = new Intent(getActivity(), MeditationPlayerActivity.class);
         intent.putExtra("judul", listMeditasi.get(position).getTitle());
         intent.putExtra("uri", listMeditasi.get(position).getUrl());
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadingDialog.stopLoading();
+            }
+        }, 500);
+
         startActivity(intent);
     }
 }

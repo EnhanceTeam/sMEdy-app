@@ -1,7 +1,9 @@
 package com.example.smedy.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smedy.R;
+import com.example.smedy.helper.LoadingDialog;
 import com.example.smedy.model.Music;
 import com.example.smedy.view.MusicPlayerActivity;
 
@@ -21,9 +24,14 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
 
     private Context context;
     private ArrayList<Music> musicList;
+    private Activity activity;
+    private LoadingDialog loadingDialog;
 
-    public MusicAdapter(Context context) {
+    public MusicAdapter(Context context, Activity activity) {
         this.context = context;
+        this.activity = activity;
+
+        loadingDialog = new LoadingDialog(activity);
     }
 
     public ArrayList<Music> getMusicList() {
@@ -49,10 +57,20 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
         holder.musicCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                loadingDialog.startLoading();
+
                 Intent intent = new Intent(context, MusicPlayerActivity.class);
                 intent.putExtra("title", music.getTitle());
                 intent.putExtra("music", music.getMusic());
                 intent.putExtra("token", music.getAccess_token());
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingDialog.stopLoading();
+                    }
+                }, 500);
+
                 context.startActivity(intent);
             }
         });

@@ -1,7 +1,9 @@
 package com.example.smedy.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smedy.R;
+import com.example.smedy.helper.LoadingDialog;
 import com.example.smedy.model.Music;
 import com.example.smedy.view.MusicPlayerActivity;
 
@@ -20,9 +23,14 @@ import java.util.ArrayList;
 public class MusicHomeAdapter extends RecyclerView.Adapter<MusicHomeAdapter.MusicViewHolder>{
     private Context context;
     private ArrayList<Music> musicList;
+    private Activity activity;
+    private LoadingDialog loadingDialog;
 
-    public MusicHomeAdapter(Context context) {
+    public MusicHomeAdapter(Context context, Activity activity) {
         this.context = context;
+        this.activity = activity;
+
+        loadingDialog = new LoadingDialog(activity);
     }
 
     public ArrayList<Music> getMusicList() {
@@ -45,14 +53,26 @@ public class MusicHomeAdapter extends RecyclerView.Adapter<MusicHomeAdapter.Musi
 
         final Music music = getMusicList().get(position);
         holder.musicTextViewTitle.setText(music.getTitle());
+
         holder.musicCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                loadingDialog.startLoading();
+
                 Intent intent = new Intent(context, MusicPlayerActivity.class);
                 intent.putExtra("title", music.getTitle());
                 intent.putExtra("music", music.getMusic());
                 intent.putExtra("token", music.getAccess_token());
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingDialog.stopLoading();
+                    }
+                }, 500);
+
                 context.startActivity(intent);
+
             }
         });
     }
