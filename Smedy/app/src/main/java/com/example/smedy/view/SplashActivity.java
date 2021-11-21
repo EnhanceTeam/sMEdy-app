@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.example.smedy.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -18,7 +19,7 @@ public class SplashActivity extends AppCompatActivity {
             splashImageTimurLaut, splashImageBaratLaut,
             splashImageBunder, splashImageNama;
     private FirebaseAuth auth;
-
+    private FirebaseFirestore fStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private void initView() {
         auth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
 
         splashImageBunder = findViewById(R.id.splashImageBunder);
         splashImageUtara = findViewById(R.id.splashImageUtara);

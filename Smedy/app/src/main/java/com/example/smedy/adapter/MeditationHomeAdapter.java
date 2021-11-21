@@ -1,7 +1,9 @@
 package com.example.smedy.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smedy.R;
+import com.example.smedy.helper.LoadingDialog;
 import com.example.smedy.model.Meditation;
 import com.example.smedy.view.MeditationPlayerActivity;
 
@@ -20,10 +23,14 @@ import java.util.ArrayList;
 public class MeditationHomeAdapter extends RecyclerView.Adapter<MeditationHomeAdapter.MeditationViewHolder> {
     private ArrayList<Meditation> listMeditasi;
     private Context context;
+    private LoadingDialog loadingDialog;
+    private Activity activity;
 
-    public MeditationHomeAdapter(ArrayList<Meditation> listMeditasi, Context context) {
+    public MeditationHomeAdapter(ArrayList<Meditation> listMeditasi, Context context, Activity activity) {
         this.listMeditasi = listMeditasi;
         this.context = context;
+        this.activity = activity;
+        loadingDialog = new LoadingDialog(activity);
     }
 
     @NonNull
@@ -45,10 +52,21 @@ public class MeditationHomeAdapter extends RecyclerView.Adapter<MeditationHomeAd
         holder.cvMeditationFragmentViewholder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                loadingDialog.startLoading();
+
                 Intent intent = new Intent(context, MeditationPlayerActivity.class);
-                intent.putExtra("judul", listMeditasi.get(position).getTitle());
-                intent.putExtra("uri", listMeditasi.get(position).getUrl());
+                intent.putExtra("judul", meditation.getTitle());
+                intent.putExtra("uri", meditation.getUrl());
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingDialog.stopLoading();
+                    }
+                }, 500);
+
                 context.startActivity(intent);
+
             }
         });
     }

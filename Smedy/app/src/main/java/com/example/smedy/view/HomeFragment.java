@@ -21,6 +21,7 @@ import com.example.smedy.R;
 import com.example.smedy.adapter.MeditationHomeAdapter;
 import com.example.smedy.adapter.MusicHomeAdapter;
 import com.example.smedy.adapter.PsikologHomeAdapter;
+import com.example.smedy.helper.LoadingDialog;
 import com.example.smedy.model.Meditation;
 import com.example.smedy.model.Music;
 import com.example.smedy.model.Psychologist;
@@ -44,11 +45,12 @@ import java.util.concurrent.Executor;
 
 public class HomeFragment extends Fragment {
 
-    FirebaseAuth mAuth;
-    FirebaseUser user;
-    FirebaseFirestore fStore;
-    String userID;
-    StorageReference storageReference;
+    private FirebaseAuth mAuth;
+    private FirebaseUser user;
+    private FirebaseFirestore fStore;
+    private String userID;
+    private StorageReference storageReference;
+    private LoadingDialog loadingDialog;
 
     private RecyclerView RVPsychologistHome, RVMusicHome, RVMeditationHome;
     private ImageView ImgUserHome;
@@ -65,10 +67,16 @@ public class HomeFragment extends Fragment {
     private com.example.smedy.viewmodel.MeditationViewModel meditationViewModel;
     private MeditationHomeAdapter meditationHomeAdapter;
 
-    private FirebaseFirestore db;
-    private FirebaseAuth auth;
-
     public HomeFragment() {
+
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        loadingDialog = new LoadingDialog(getActivity());
+        loadingDialog.startLoading();
     }
 
     @Override
@@ -87,9 +95,7 @@ public class HomeFragment extends Fragment {
         });
 
         txtNamaHomeFragment = view.findViewById(R.id.txtNamaHomeFragment);
-        db = FirebaseFirestore.getInstance();
-        auth = FirebaseAuth.getInstance();
-      
+
         mAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -97,11 +103,12 @@ public class HomeFragment extends Fragment {
         user = mAuth.getCurrentUser();
         userID = user.getUid();
       
-         db.collection("user_collection").document(userID).get()
+         fStore.collection("user_collection").document(userID).get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         txtNamaHomeFragment.setText(documentSnapshot.getString("username"));
+                        loadingDialog.stopLoading();
                     }
                 });
 
@@ -148,7 +155,7 @@ public class HomeFragment extends Fragment {
     private Observer<ArrayList<Music>> showMusic = new Observer<ArrayList<Music>>() {
         @Override
         public void onChanged(ArrayList<Music> ListMusic) {
-            musicHomeAdapter = new MusicHomeAdapter(getActivity());
+            musicHomeAdapter = new MusicHomeAdapter(getActivity(), getActivity());
             musicHomeAdapter.setMusicList(ListMusic);
             RVMusicHome.setLayoutManager(new LinearLayoutManager(getActivity()));
             RVMusicHome.setAdapter(musicHomeAdapter);
@@ -159,7 +166,7 @@ public class HomeFragment extends Fragment {
     private Observer<ArrayList<Meditation>> showGetMeditationResult = new Observer<ArrayList<Meditation>>() {
         @Override
         public void onChanged(ArrayList<Meditation> listMeditasi) {
-            meditationHomeAdapter = new MeditationHomeAdapter(listMeditasi, getActivity());
+            meditationHomeAdapter = new MeditationHomeAdapter(listMeditasi, getActivity(), getActivity());
             RVMeditationHome.setLayoutManager(new LinearLayoutManager(getActivity()));
             RVMeditationHome.setAdapter(meditationHomeAdapter);
         }

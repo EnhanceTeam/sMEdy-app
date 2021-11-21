@@ -1,7 +1,9 @@
 package com.example.smedy.view;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -17,6 +19,7 @@ import androidx.cardview.widget.CardView;
 
 import com.example.smedy.R;
 import com.example.smedy.helper.Const;
+import com.example.smedy.helper.LoadingDialog;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -56,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button logButtonLogin;
     private CardView logCardViewGoogle;
     private Intent intent;
+    private LoadingDialog loadingDialog;
 
 //    @Override
 //    protected void onStart() {
@@ -147,28 +151,50 @@ public class LoginActivity extends AppCompatActivity {
         logButtonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                loadingDialog.startLoading();
 
                 String email = logTextInputEmail.getEditText().getText().toString().trim();
                 String password = logTextInputPassword.getEditText().getText().toString().trim();
 
                 if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
-                    mAuth.signInWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
-                        public void onSuccess(AuthResult authResult) {
-                            intent = new Intent(getBaseContext(), MainActivity.class);
-                            Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                            startActivity(intent);
-                            finish();
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        intent = new Intent(LoginActivity.this, MainActivity.class);
+                                        loadingDialog.stopLoading();
+                                        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                                        startActivity(intent);
+                                        finish();
 
-                            clearError();
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(LoginActivity.this, "Wrong email or password", Toast.LENGTH_SHORT).show();
-                            Log.d("error", e.toString());
+                                        clearError();
+                                    }
+                                }, 1000);
+                            }else{
+//                                Log.d("error", e.toString());
+
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        loadingDialog.stopLoading();
+                                        Toast.makeText(LoginActivity.this, "Wrong email or password", Toast.LENGTH_SHORT).show();
+                                    }
+                                }, 1000);
+                            }
                         }
                     });
+                }else{
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            loadingDialog.stopLoading();
+                            Toast.makeText(LoginActivity.this, "Type in your email and password!", Toast.LENGTH_SHORT).show();
+                        }
+                    }, 1000);
+
                 }
             }
         });
@@ -299,6 +325,8 @@ public class LoginActivity extends AppCompatActivity {
         logButtonLogin = findViewById(R.id.logButtonLogin);
         logCardViewGoogle = findViewById(R.id.logCardViewGoogle);
         logTextViewRegister = findViewById(R.id.logTextViewRegister);
+
+        loadingDialog = new LoadingDialog(LoginActivity.this);
     }
 
 //    @Override
